@@ -1,1 +1,2 @@
 Hello World!
+//Alright the repository with the new gitignore and file hierarchy should be better with Unity now
