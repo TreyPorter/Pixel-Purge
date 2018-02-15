@@ -9,6 +9,7 @@ public class CameraSystem : MonoBehaviour {
     public float xMax;
     public float yMin;
     public float yMax;
+	//test variable from laptop
 
     // Use this for initialization
     void Start()
