@@ -1,31 +1,3 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Marketplace
-    Explore
-
-    @TreyPorter
-
-0
-0
-
-    0
-
-TreyPorter/Pixel-Purge
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
-Insights
-Settings
-Pixel-Purge/.gitignore
-6990abf 15 seconds ago
-@TreyPorter TreyPorter Initial commit
-35 lines (29 sloc) 422 Bytes
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -60,18 +32,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
-    © 2018 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    API
-    Training
-    Shop
-    Blog
-    About
-
