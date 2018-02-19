@@ -178,11 +178,13 @@
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
 -define:ENABLE_VSTU
-Assets/CameraSystem.cs
-Assets/Enemy_Move.cs
-Assets/Player_Health.cs
-Assets/Player_Move_Prot.cs
-Assets/pre_Player_Move_Prot.cs
+Assets/Scripts/CameraSystem.cs
+Assets/Scripts/Enemy_Health.cs
+Assets/Scripts/Enemy_Move.cs
+Assets/Scripts/Player_Health.cs
+Assets/Scripts/Player_Move_Prot.cs
+Assets/Scripts/Player_Score.cs
+Assets/Scripts/pre_Player_Move_Prot.cs
 -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
 -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
 -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\UnityScript.dll"
