@@ -8,7 +8,7 @@ public class Enemy_Move : MonoBehaviour {
 
     public int EnemySpeed;
     public int XMoveDirection;
-
+    RaycastHit2D hit;
 
     /*
 	// Use this for initialization
@@ -16,18 +16,18 @@ public class Enemy_Move : MonoBehaviour {
 		
 	}
     */
-	
-	// Update is called once per frame
-	void Update () {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(XMoveDirection, 0));
+
+    // Update is called once per frame
+    void Update () {
+        hit = Physics2D.Raycast(transform.position, new Vector2(XMoveDirection, 0), 0.7f);
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(XMoveDirection, 0) * EnemySpeed;
-        if(hit.distance < 0.7f)
+        if(hit.collider != null)
         {
             Flip();
             if(hit.collider.tag == "Player")
             {
                 Destroy(hit.collider.gameObject); // Destroys objects it touches
-                SceneManager.LoadScene("Prototype1");
+                SceneManager.LoadScene("Prototype2");
             }
             //Destroy(hit.collider.gameObject); // Destroys objects it touches
         }
