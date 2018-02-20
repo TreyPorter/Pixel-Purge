@@ -9,6 +9,7 @@ public class CameraSystem : MonoBehaviour {
     public float xMax;
     public float yMin;
     public float yMax;
+    //I fixed the git organization AGAIN. -abel
 
     // Use this for initialization
     void Start()
