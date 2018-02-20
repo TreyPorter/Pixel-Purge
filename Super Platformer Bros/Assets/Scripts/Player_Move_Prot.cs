@@ -97,7 +97,7 @@ public class Player_Move_Prot : MonoBehaviour {
             //Debug.Log("Squished enemy");
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000);
             rayDown.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
-            rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
+            rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 20;
             rayDown.collider.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
             rayDown.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             rayDown.collider.gameObject.GetComponent<Enemy_Move>().enabled = false;
