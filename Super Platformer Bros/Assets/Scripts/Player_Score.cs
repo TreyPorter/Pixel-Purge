@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Player_Score : MonoBehaviour {
 
-    private float timeLeft = 120;
+    private float timeLeft = 5;
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
@@ -18,7 +18,7 @@ public class Player_Score : MonoBehaviour {
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
         if (timeLeft < 0.1f)
         {
-            SceneManager.LoadScene("Prototype1");
+            SceneManager.LoadScene("Prototype2");
         }
        //Debug.Log(timeLeft);
 	}
