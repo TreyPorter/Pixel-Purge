@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Main Menu.unity
     guid: 0c22c8a434000fd4f9050067e70e09e9
   - enabled: 1
+    path: Assets/Prototype1.unity
+    guid: 59fb0fac31462d5438e8ecc12b5c3840
+  - enabled: 1
     path: Assets/Proto3.unity
     guid: fef10f18e6c13c9459132df7182101cd
