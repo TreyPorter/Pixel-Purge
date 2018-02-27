@@ -14,7 +14,7 @@ public class NPC : MonoBehaviour {
     public bool talks;      // Can talk to player
 
     public string message;  // This is what the NPC tells the player
-
+    public GameObject npcTextUI;
 	// Use this for initialization
 	void Start () {
 
@@ -25,5 +25,11 @@ public class NPC : MonoBehaviour {
         /*
         npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + npcText);
         */
+    }
+
+    public void Talk()
+    {
+        Debug.Log("NPC says: 'Hello!'");
+        npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + message);
     }
 }

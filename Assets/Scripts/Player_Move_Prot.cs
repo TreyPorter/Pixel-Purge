@@ -89,15 +89,8 @@ public class Player_Move_Prot : MonoBehaviour {
     void Talk()
     {
         if (canTalk && Input.GetKey(KeyCode.X)){
-            Debug.Log("NPC says: 'Hello!'");
-            npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + sample.message);
+            sample.Talk();
         }
-        if(!canTalk)
-        {
-            npcTextUI.gameObject.GetComponent<Text>().text = ("");
-        }
-        //canTalk = false;
-        //npcTextUI.gameObject.GetComponent<Text>().text = ("");
     }
 
 
