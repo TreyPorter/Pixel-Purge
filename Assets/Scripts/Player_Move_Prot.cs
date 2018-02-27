@@ -172,6 +172,11 @@ public class Player_Move_Prot : MonoBehaviour {
         
     }
 
+    private void OnTriggerExit2D()
+    {
+        canTalk = false;
+        npcTextUI.gameObject.GetComponent<Text>().text = ("");
+    }
 
     void Animate()
     {
