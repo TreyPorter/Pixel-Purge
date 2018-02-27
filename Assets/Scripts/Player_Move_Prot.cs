@@ -17,7 +17,7 @@ public class Player_Move_Prot : MonoBehaviour {
 
     //NPC talking, try to move this into NPC somehow
     public GameObject npcTextUI;
-    public string npcText = "Hello!";
+    public NPC sample;
 
 
     // Use this for initialization
@@ -28,7 +28,7 @@ public class Player_Move_Prot : MonoBehaviour {
         anim.SetBool("IsGrounded", true);
     }
 
-	
+
 	// Update is called once per frame
 	void Update () {
         PlayerMove();
@@ -85,12 +85,12 @@ public class Player_Move_Prot : MonoBehaviour {
         transform.localScale = localScale;
     }
 
-    
+
     void Talk()
     {
         if (canTalk && Input.GetKey(KeyCode.X)){
             Debug.Log("NPC says: 'Hello!'");
-            npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + npcText);
+            npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + sample.message);
         }
         if(!canTalk)
         {
@@ -99,7 +99,7 @@ public class Player_Move_Prot : MonoBehaviour {
         //canTalk = false;
         //npcTextUI.gameObject.GetComponent<Text>().text = ("");
     }
-    
+
 
 
     void OnCollisionEnter2D(Collision2D col)
@@ -158,10 +158,11 @@ public class Player_Move_Prot : MonoBehaviour {
                 Debug.Log("NPC says hello!");
             }
         }   */
-        
-        
+
+
         if (trig.gameObject.tag == "npc")
         {
+            sample = trig.GetComponent<NPC>();
             Debug.Log("Talk to NPC?");
             canTalk = true;
         }
@@ -169,7 +170,7 @@ public class Player_Move_Prot : MonoBehaviour {
         {
             canTalk = false;
         }
-        
+
     }
 
     private void OnTriggerExit2D()

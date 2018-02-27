@@ -784,6 +784,11 @@ Prefab:
       propertyPath: npcTextUI
       value: 
       objectReference: {fileID: 1752366122}
+    - target: {fileID: 114836790307489744, guid: 38bdb6b63e08d774e823cd6475eb3d54,
+        type: 2}
+      propertyPath: sample
+      value: 
+      objectReference: {fileID: 2008149872}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38bdb6b63e08d774e823cd6475eb3d54, type: 2}
   m_IsPrefabParent: 0
@@ -1660,9 +1665,20 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114836790307489744, guid: 38bdb6b63e08d774e823cd6475eb3d54,
+        type: 2}
+      propertyPath: sample
+      value: 
+      objectReference: {fileID: 2008149872}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38bdb6b63e08d774e823cd6475eb3d54, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2008149872 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114836022815671688, guid: c6e735cf60e42d040a78892e4d66f963,
+    type: 2}
+  m_PrefabInternal: {fileID: 1756762897}
+  m_Script: {fileID: 11500000, guid: 2433fb402b5b0154babac45fb8899447, type: 3}
 --- !u!1 &2013208800
 GameObject:
   m_ObjectHideFlags: 0
