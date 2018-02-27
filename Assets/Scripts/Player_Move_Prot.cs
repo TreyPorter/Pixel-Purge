@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_Move_Prot : MonoBehaviour {
 
@@ -13,8 +15,13 @@ public class Player_Move_Prot : MonoBehaviour {
     Animator anim;
     // public bool isDead;
 
-	// Use this for initialization
-	void Start () {
+    //NPC talking, try to move this into NPC somehow
+    public GameObject npcTextUI;
+    public string npcText = "Hello!";
+
+
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
         anim.SetBool("IsMoving", false);
         anim.SetBool("IsCrouching", false);
@@ -81,9 +88,16 @@ public class Player_Move_Prot : MonoBehaviour {
     
     void Talk()
     {
-         if (canTalk && Input.GetKey(KeyCode.X)){
+        if (canTalk && Input.GetKey(KeyCode.X)){
             Debug.Log("NPC says: 'Hello!'");
+            npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + npcText);
         }
+        if(!canTalk)
+        {
+            npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + npcText);
+        }
+        //canTalk = false;
+        //npcTextUI.gameObject.GetComponent<Text>().text = ("");
     }
     
 
@@ -151,7 +165,7 @@ public class Player_Move_Prot : MonoBehaviour {
             Debug.Log("Talk to NPC?");
             canTalk = true;
         }
-        else
+        if (trig.gameObject.tag == null)
         {
             canTalk = false;
         }
