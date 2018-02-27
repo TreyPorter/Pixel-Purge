@@ -779,6 +779,11 @@ Prefab:
       propertyPath: m_Offset.x
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 114836790307489744, guid: 38bdb6b63e08d774e823cd6475eb3d54,
+        type: 2}
+      propertyPath: npcTextUI
+      value: 
+      objectReference: {fileID: 1752366122}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38bdb6b63e08d774e823cd6475eb3d54, type: 2}
   m_IsPrefabParent: 0
@@ -1495,8 +1500,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 80, y: 15}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 250, y: 75}
+  m_SizeDelta: {x: 500, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1752366124
 MonoBehaviour:
@@ -1530,13 +1535,73 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Man: '
+  m_Text: 
 --- !u!222 &1752366125
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1752366122}
+--- !u!1001 &1756762897
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4535177866571376, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -12.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535177866571376, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535177866571376, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535177866571376, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535177866571376, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535177866571376, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535177866571376, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535177866571376, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836022815671688, guid: c6e735cf60e42d040a78892e4d66f963,
+        type: 2}
+      propertyPath: message
+      value: Hello! Go through the door to get points.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502715489090386, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_TagString
+      value: npc
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836022815671688, guid: c6e735cf60e42d040a78892e4d66f963,
+        type: 2}
+      propertyPath: npcTextUI
+      value: 
+      objectReference: {fileID: 1752366122}
+    - target: {fileID: 1502715489090386, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+      propertyPath: m_Name
+      value: npc1 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1863988612
 Prefab:
   m_ObjectHideFlags: 0
@@ -1745,6 +1810,11 @@ Prefab:
       propertyPath: m_TagString
       value: npc
       objectReference: {fileID: 0}
+    - target: {fileID: 114836022815671688, guid: c6e735cf60e42d040a78892e4d66f963,
+        type: 2}
+      propertyPath: npcTextUI
+      value: 
+      objectReference: {fileID: 1752366122}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
   m_IsPrefabParent: 0

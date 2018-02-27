@@ -94,7 +94,7 @@ public class Player_Move_Prot : MonoBehaviour {
         }
         if(!canTalk)
         {
-            npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + npcText);
+            npcTextUI.gameObject.GetComponent<Text>().text = ("");
         }
         //canTalk = false;
         //npcTextUI.gameObject.GetComponent<Text>().text = ("");
