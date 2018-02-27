@@ -20,6 +20,7 @@ public class Player_Score : MonoBehaviour {
         {
             SceneManager.LoadScene("Prototype2");
         }
+
        //Debug.Log(timeLeft);
 	}
 
