@@ -9,6 +9,7 @@ public class Player_Move_Prot : MonoBehaviour {
     public int playerJumpPower = 1250;
     private float moveX;
     public bool isGrounded;
+    public bool canTalk = false;
     Animator anim;
     // public bool isDead;
 
@@ -26,6 +27,7 @@ public class Player_Move_Prot : MonoBehaviour {
         PlayerMove();
         //PlayerRaycast();
         Animate();
+        Talk();
 	}
 
     void PlayerMove()
@@ -48,6 +50,8 @@ public class Player_Move_Prot : MonoBehaviour {
         }
         // PHYSICS
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+
+
     }
 
     void Jump()
@@ -73,6 +77,16 @@ public class Player_Move_Prot : MonoBehaviour {
         localScale.x *= -1;
         transform.localScale = localScale;
     }
+
+    
+    void Talk()
+    {
+         if (canTalk && Input.GetKey(KeyCode.X)){
+            Debug.Log("NPC says: 'Hello!'");
+        }
+    }
+    
+
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -116,8 +130,34 @@ public class Player_Move_Prot : MonoBehaviour {
             isDead = true;
         }
         */
-
     }
+
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        /*
+        if (trig.gameObject.tag == "npc")
+        {
+            Debug.Log("Talk to NPC?");
+            // Why doesn't this work?   - Andy
+            if (Input.GetKey(KeyCode.X))
+            {
+                Debug.Log("NPC says hello!");
+            }
+        }   */
+        
+        
+        if (trig.gameObject.tag == "npc")
+        {
+            Debug.Log("Talk to NPC?");
+            canTalk = true;
+        }
+        else
+        {
+            canTalk = false;
+        }
+        
+    }
+
 
     void Animate()
     {
