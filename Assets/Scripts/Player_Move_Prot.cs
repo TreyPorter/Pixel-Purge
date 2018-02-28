@@ -11,13 +11,12 @@ public class Player_Move_Prot : MonoBehaviour {
     public int playerJumpPower = 1250;
     private float moveX;
     public bool isGrounded;
-    public bool canTalk = false;
     Animator anim;
     // public bool isDead;
 
-    //NPC talking, try to move this into NPC somehow
-    public GameObject npcTextUI;
-    public NPC sample;
+    //NPC talking, moved in NPC
+    //public GameObject npcTextUI;
+    //public NPC sample;
 
 
     // Use this for initialization
@@ -34,7 +33,6 @@ public class Player_Move_Prot : MonoBehaviour {
         PlayerMove();
         //PlayerRaycast();
         Animate();
-        Talk();
 	}
 
     void PlayerMove()
@@ -85,16 +83,6 @@ public class Player_Move_Prot : MonoBehaviour {
         transform.localScale = localScale;
     }
 
-
-    void Talk()
-    {
-        if (canTalk && Input.GetKey(KeyCode.X)){
-            sample.Talk();
-        }
-    }
-
-
-
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Player has collided with " + col.collider.name);
@@ -137,39 +125,6 @@ public class Player_Move_Prot : MonoBehaviour {
             isDead = true;
         }
         */
-    }
-
-    private void OnTriggerEnter2D(Collider2D trig)
-    {
-        /*
-        if (trig.gameObject.tag == "npc")
-        {
-            Debug.Log("Talk to NPC?");
-            // Why doesn't this work?   - Andy
-            if (Input.GetKey(KeyCode.X))
-            {
-                Debug.Log("NPC says hello!");
-            }
-        }   */
-
-
-        if (trig.gameObject.tag == "npc")
-        {
-            sample = trig.GetComponent<NPC>();
-            Debug.Log("Talk to NPC?");
-            canTalk = true;
-        }
-        if (trig.gameObject.tag == null)
-        {
-            canTalk = false;
-        }
-
-    }
-
-    private void OnTriggerExit2D()
-    {
-        canTalk = false;
-        npcTextUI.gameObject.GetComponent<Text>().text = ("");
     }
 
     void Animate()

@@ -12,7 +12,7 @@ public class NPC : MonoBehaviour {
     */
 
     public bool talks;      // Can talk to player
-
+    public bool canTalk = false;
     public string message;  // This is what the NPC tells the player
     public GameObject npcTextUI;
 	// Use this for initialization
@@ -25,11 +25,45 @@ public class NPC : MonoBehaviour {
         /*
         npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + npcText);
         */
+        Talk();
     }
 
     public void Talk()
     {
-        Debug.Log("NPC says: 'Hello!'");
-        npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + message);
+        if (canTalk && Input.GetKey(KeyCode.X)){
+            Debug.Log("NPC says: " + message);
+            npcTextUI.gameObject.GetComponent<Text>().text = ("NPC: " + message);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        /*
+        if (trig.gameObject.tag == "npc")
+        {
+            Debug.Log("Talk to NPC?");
+            // Why doesn't this work?   - Andy
+            if (Input.GetKey(KeyCode.X))
+            {
+                Debug.Log("NPC says hello!");
+            }
+        }   */
+        /* This code is unnecessary with OnTriggerExit2D()
+        if (trig.gameObject.tag == null)
+        {
+            canTalk = false;
+        }*/
+        if (trig.gameObject.tag == "Player")
+        {
+            //sample = trig.GetComponent<NPC>();
+            Debug.Log("Talk to NPC?");
+            canTalk = true;
+        }
+    }
+
+    private void OnTriggerExit2D()
+    {
+        canTalk = false;
+        npcTextUI.gameObject.GetComponent<Text>().text = ("");
     }
 }

@@ -1589,7 +1589,7 @@ Prefab:
     - target: {fileID: 114836022815671688, guid: c6e735cf60e42d040a78892e4d66f963,
         type: 2}
       propertyPath: message
-      value: Hello! Go through the door to get points.
+      value: Hello! Go right!!!
       objectReference: {fileID: 0}
     - target: {fileID: 1502715489090386, guid: c6e735cf60e42d040a78892e4d66f963, type: 2}
       propertyPath: m_TagString
