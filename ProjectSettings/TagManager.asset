@@ -8,6 +8,8 @@ TagManager:
   - enemy
   - box_2
   - coin
+  - npc
+  - box_3
   layers:
   - Default
   - TransparentFX

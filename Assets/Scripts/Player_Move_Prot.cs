@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_Move_Prot : MonoBehaviour {
 
@@ -12,15 +14,19 @@ public class Player_Move_Prot : MonoBehaviour {
     Animator anim;
     // public bool isDead;
 
-	// Use this for initialization
-	void Start () {
+    //NPC talking, moved in NPC
+    //public GameObject npcTextUI;
+    //public NPC sample;
+
+
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
         anim.SetBool("IsMoving", false);
         anim.SetBool("IsCrouching", false);
         anim.SetBool("IsGrounded", true);
     }
 
-	
 	// Update is called once per frame
 	void Update () {
         PlayerMove();

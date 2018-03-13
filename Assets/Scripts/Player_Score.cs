@@ -18,8 +18,9 @@ public class Player_Score : MonoBehaviour {
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
         if (timeLeft < 0.1f)
         {
-            SceneManager.LoadScene("Prototype1");
+            SceneManager.LoadScene("Prototype2");
         }
+
        //Debug.Log(timeLeft);
 	}
 
@@ -27,7 +28,7 @@ public class Player_Score : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D trig)
     {
         //Debug.Log("Touched the End of the Level");
-        if (trig.gameObject.name == "EndLevel")
+        if (trig.gameObject.name == "exit")
         {
             CountScore();
         }
