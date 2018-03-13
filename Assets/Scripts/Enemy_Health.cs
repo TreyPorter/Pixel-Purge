@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Health : MonoBehaviour {
-
     // Update is called once per frame
     void Update()
     {

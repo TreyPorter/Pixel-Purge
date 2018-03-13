@@ -27,7 +27,6 @@ public class Player_Move_Prot : MonoBehaviour {
         anim.SetBool("IsGrounded", true);
     }
 
-
 	// Update is called once per frame
 	void Update () {
         PlayerMove();
@@ -55,8 +54,6 @@ public class Player_Move_Prot : MonoBehaviour {
         }
         // PHYSICS
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
-
-
     }
 
     void Jump()
@@ -125,6 +122,7 @@ public class Player_Move_Prot : MonoBehaviour {
             isDead = true;
         }
         */
+
     }
 
     void Animate()
