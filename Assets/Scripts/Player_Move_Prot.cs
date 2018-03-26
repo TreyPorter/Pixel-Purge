@@ -102,13 +102,17 @@ public class Player_Move_Prot : MonoBehaviour {
         if (rayDown != null && rayDown.collider != null && col.collider.tag == "enemy")
         {
             //Debug.Log("Squished enemy");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
             /*rayDown.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
             rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
             rayDown.collider.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
             rayDown.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             rayDown.collider.gameObject.GetComponent<Enemy_Move>().enabled = false;*/
-            Destroy(col.transform.gameObject);
+
+            //Mario Style Method
+            //Destroy(col.transform.gameObject);
+
+
         }
         /*
         if (col.gameObject.tag == "ground")
