@@ -139,9 +139,8 @@ public class Enemy_Move : MonoBehaviour {
             yield return null;
         }
     }
-    private void OnTriggerEnter2D(Collider2D trig)
+    private void OnCollisionEnter2D(Collision2D trig)
     {
-        Debug.Log("meme ");
         if (trig.gameObject.tag == "Player")
         {
             Debug.Log("Enemy Attacking");

@@ -92,6 +92,8 @@ public class Player_Move_Prot : MonoBehaviour {
         }
 
         RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
+        RaycastHit2D rayRight = Physics2D.Raycast(transform.position, Vector2.right);
+        RaycastHit2D rayLeft = Physics2D.Raycast(transform.position, Vector2.left);
         if (rayDown != null && rayDown.collider != null && col.collider.tag != "enemy")
         {
             isGrounded = true;
@@ -103,6 +105,14 @@ public class Player_Move_Prot : MonoBehaviour {
         {
             //Debug.Log("Squished enemy");
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
+            if(rayRight != null && rayRight.collider != null) {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.left * 1000);
+                Debug.Log("Player pushed left");
+            }
+            else if(rayLeft != null && rayLeft.collider != null) {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.right * 1000);
+                Debug.Log("Player pushed rught");
+            }
             /*rayDown.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
             rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
             rayDown.collider.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
