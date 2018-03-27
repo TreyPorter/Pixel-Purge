@@ -2,23 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_Health : MonoBehaviour {
 
 
-    public int health;
-	/*
-    public bool hasDied;
+    public float health;
+    public float maxhealth;
+    public Image healthb;
+    RectTransform healthbar;
+    float origSize;
 
 	// Use this for initialization
 	void Start () {
-        hasDied = false;
-	}
-	*/
+        //hasDied = false;
+        health = maxhealth;
+        healthbar = healthb.GetComponent<RectTransform>();
+        origSize = healthbar.sizeDelta.x;
+
+    }
+	
 
 	// Update is called once per frame
 	void Update () {
-		if(gameObject.transform.position.y < -20)
+		if(gameObject.transform.position.y < -20 || health <= 0)
         {
             //Debug.Log("Player Has Died");
             //hasDied = true;
@@ -31,7 +38,9 @@ public class Player_Health : MonoBehaviour {
             StartCoroutine("Die");
         }
         */
-	}
+        healthbar.sizeDelta = new Vector2(origSize * (health/maxhealth), healthbar.sizeDelta.y);
+        //Debug.Log("Orig Size: " + origSize + " percent: " + health / maxhealth);
+    }
 
 
     /*

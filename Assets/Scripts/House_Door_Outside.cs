@@ -22,7 +22,7 @@ public class House_Door_Outside : MonoBehaviour {
         if(other.gameObject.tag =="Player")
         {
             enterDoorText.SetActive(true);
-            if(enterDoorText.activeInHierarchy == true && Input.GetButton("Use"))
+            if(enterDoorText.activeInHierarchy == true && Input.GetKey("e"))
             {
                 SceneManager.LoadScene(changeLevel);
             }

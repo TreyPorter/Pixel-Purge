@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemy_Move : MonoBehaviour {
 
+    public GameObject Player;
     Player_Health playerHealth;
     public int EnemySpeed;
     public int XMoveDirection;
@@ -14,16 +15,17 @@ public class Enemy_Move : MonoBehaviour {
     RaycastHit2D hit;
     private Transform target;
     public LayerMask blockingLayer;         //Layer on which collision will be checked.
+    public int enemyDamage;
 
 	// Use this for initialization
 	void Start () {
-       target = GameObject.FindGameObjectWithTag("Player").transform;
+       target = Player.transform;
        //Get a component reference to this object's BoxCollider2D
        boxCollider = GetComponent <BoxCollider2D> ();
        //Get a component reference to this object's Rigidbody2D
        rb2D = GetComponent <Rigidbody2D> ();
 
-       playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent <Player_Health> ();
+       playerHealth = Player.GetComponent<Player_Health> ();
     }
 
 
@@ -160,7 +162,7 @@ public class Enemy_Move : MonoBehaviour {
         */
     }
     private void attackPlayer() {
-        playerHealth.health = playerHealth.health-10;
+        playerHealth.health = playerHealth.health - enemyDamage;
         Debug.Log("Player Health: " + playerHealth.health);
     }
     void Flip ()
@@ -168,10 +170,16 @@ public class Enemy_Move : MonoBehaviour {
         if( XMoveDirection > 0)
         {
             XMoveDirection = -1;
+            Vector2 localScale = gameObject.transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
         }
         else
         {
             XMoveDirection = 1;
+            Vector2 localScale = gameObject.transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
         }
     }
 }
