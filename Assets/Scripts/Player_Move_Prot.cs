@@ -20,7 +20,7 @@ public class Player_Move_Prot : MonoBehaviour {
     public GameObject sword;
     public GameObject axe;
     public GameObject lance;
-    GameObject cur;
+    public GameObject cur;
     // public bool isDead;
 
     //NPC talking, moved in NPC
@@ -93,17 +93,14 @@ public class Player_Move_Prot : MonoBehaviour {
 
     void Attack()
     {
-        // JUMPING CODE
-        //GetComponent<Rigidbody2D>().AddForce(Vector2.right * playerJumpPower);
-        //anim.SetTrigger("Attack");
         if (Input.GetKeyDown("z") == true || Input.GetKey("z") == true) {
-            armAnim.SetBool("IsAttacking", true);
-            cur.GetComponent<Hitbox>().hitActive = true;
+            //armAnim.SetBool("IsAttacking", true);
+            armAnim.SetTrigger("Attack");
         }
-        else {
+        /*else {
             armAnim.SetBool("IsAttacking", false);
-            cur.GetComponent<Hitbox>().hitActive = false;
-        }
+            //cur.GetComponent<Hitbox>().hitActive = false;
+        }*/
         if (Input.GetKeyDown("x") == true) {weaponSwap();}
 
     }
