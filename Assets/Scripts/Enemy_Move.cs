@@ -36,11 +36,11 @@ public class Enemy_Move : MonoBehaviour {
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(XMoveDirection, 0) * EnemySpeed;
         if(hit.collider != null)
         {
-            Flip();
-            if(hit.collider.tag == "target")
+            if (hit.collider.tag != "weapon") { Flip(); }
+            if(hit.collider.tag == "Player")
             {
                 Destroy(hit.collider.gameObject); // Destroys objects it touches
-                SceneManager.LoadScene("Prototype2");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             //Destroy(hit.collider.gameObject); // Destroys objec
 

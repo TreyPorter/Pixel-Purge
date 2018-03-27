@@ -10,23 +10,52 @@ public class Player_Move_Prot : MonoBehaviour {
     private float moveX;
     public bool isGrounded;
     Animator anim;
+    Animator armAnim;
+    //GameObject Weapon;
+    //Sprite curWeapon;
+    int curWeapon;
+
+    public GameObject sword;
+    public GameObject axe;
+    public GameObject lance;
+    public GameObject cur;
     // public bool isDead;
 
-	// Use this for initialization
-	void Start () {
+    //NPC talking, moved in NPC
+    //public GameObject npcTextUI;
+    //public NPC sample;
+
+
+    // Use this for initialization
+    void Start () {
+        sword = transform.Find("Shoulder/ShoulderB/ArmB/ElbowB/HandB/Sword").gameObject;
+        axe = transform.Find("Shoulder/ShoulderB/ArmB/ElbowB/HandB/Axe").gameObject;
+        lance = transform.Find("Shoulder/ShoulderB/ArmB/ElbowB/HandB/Lance").gameObject;
+        sword.SetActive(true);
+        axe.SetActive(false);
+        lance.SetActive(false);
+        curWeapon = 1;
+        cur = sword;
         anim = GetComponent<Animator>();
         anim.SetBool("IsMoving", false);
         anim.SetBool("IsCrouching", false);
         anim.SetBool("IsGrounded", true);
+        armAnim = transform.Find("Shoulder/ShoulderB").GetComponent<Animator>();
+        armAnim.SetBool("IsAttacking", false);
+        armAnim.SetBool("SwordActive", true);
+        armAnim.SetBool("AxeActive", false);
+        armAnim.SetBool("LanceActive", false);
     }
 
 	
 	// Update is called once per frame
 	void Update () {
+        Attack();
         PlayerMove();
         //PlayerRaycast();
         Animate();
-	}
+        
+    }
 
     void PlayerMove()
     {
@@ -59,11 +88,18 @@ public class Player_Move_Prot : MonoBehaviour {
         anim.SetBool("IsGrounded", isGrounded);
     }
 
-    void Slide()
+    void Attack()
     {
-        // JUMPING CODE
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * playerJumpPower);
-        anim.SetTrigger("Attack");
+        if (Input.GetKeyDown("z") == true || Input.GetKey("z") == true) {
+            //armAnim.SetBool("IsAttacking", true);
+            armAnim.SetTrigger("Attack");
+        }
+        /*else {
+            armAnim.SetBool("IsAttacking", false);
+            //cur.GetComponent<Hitbox>().hitActive = false;
+        }*/
+        if (Input.GetKeyDown("x") == true) {weaponSwap();}
+
     }
 
     void FlipPlayer()
@@ -138,7 +174,38 @@ public class Player_Move_Prot : MonoBehaviour {
         anim.SetBool("IsMoving", (Input.GetButton("Horizontal")));
         anim.SetBool("IsCrouching", Input.GetKey("down"));
         anim.SetBool("IsGrounded", isGrounded);
-        if (Input.GetKeyDown("z")){ Slide(); };
+        //if (Input.GetKeyDown("z")){ Attack(); };
+    }
+
+    void weaponSwap()
+    {
+        if(curWeapon == 0 || curWeapon == 3)
+        {
+            sword.SetActive(true);
+            lance.SetActive(false);
+            cur = sword;
+            armAnim.SetBool("SwordActive", true);
+            armAnim.SetBool("LanceActive", false);
+            curWeapon = 1;
+        }
+        else if (curWeapon == 1)
+        {
+            axe.SetActive(true);
+            sword.SetActive(false);
+            cur = axe;
+            armAnim.SetBool("AxeActive", true);
+            armAnim.SetBool("SwordActive", false);
+            curWeapon = 2;
+        }
+        else if (curWeapon == 2)
+        {
+            lance.SetActive(true);
+            axe.SetActive(false);
+            cur = lance;
+            armAnim.SetBool("LanceActive", true);
+            armAnim.SetBool("AxeActive", false);
+            curWeapon = 3;
+        }
     }
 
     /*void PlayerRaycast()
