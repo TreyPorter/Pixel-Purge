@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_Health : MonoBehaviour {
     // Update is called once per frame
+    public int EnemyHealth;
     void Update()
     {
         if (gameObject.transform.position.y < -20)
