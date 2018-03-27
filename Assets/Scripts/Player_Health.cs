@@ -47,7 +47,7 @@ public class Player_Health : MonoBehaviour {
 
     void Die ()
     {
-        SceneManager.LoadScene("Prototype2");
+        SceneManager.LoadScene("Prototype1");
         // yield return null;
         /*
         Debug.Log("Player has fallen");
