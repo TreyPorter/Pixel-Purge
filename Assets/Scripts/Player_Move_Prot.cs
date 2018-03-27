@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Player_Move_Prot : MonoBehaviour {
 
@@ -38,8 +36,6 @@ public class Player_Move_Prot : MonoBehaviour {
         lance.SetActive(false);
         curWeapon = 1;
         cur = sword;
-
-
         anim = GetComponent<Animator>();
         anim.SetBool("IsMoving", false);
         anim.SetBool("IsCrouching", false);
@@ -51,6 +47,7 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("LanceActive", false);
     }
 
+	
 	// Update is called once per frame
 	void Update () {
         Attack();
@@ -125,6 +122,8 @@ public class Player_Move_Prot : MonoBehaviour {
         }
 
         RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
+        RaycastHit2D rayRight = Physics2D.Raycast(transform.position, Vector2.right);
+        RaycastHit2D rayLeft = Physics2D.Raycast(transform.position, Vector2.left);
         if (rayDown != null && rayDown.collider != null && col.collider.tag != "enemy")
         {
             isGrounded = true;
@@ -135,13 +134,25 @@ public class Player_Move_Prot : MonoBehaviour {
         if (rayDown != null && rayDown.collider != null && col.collider.tag == "enemy")
         {
             //Debug.Log("Squished enemy");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
+            if(rayRight != null && rayRight.collider != null) {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.left * 1000);
+                Debug.Log("Player pushed left");
+            }
+            else if(rayLeft != null && rayLeft.collider != null) {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.right * 1000);
+                Debug.Log("Player pushed rught");
+            }
             /*rayDown.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
             rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
             rayDown.collider.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
             rayDown.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             rayDown.collider.gameObject.GetComponent<Enemy_Move>().enabled = false;*/
-            Destroy(col.transform.gameObject);
+
+            //Mario Style Method
+            //Destroy(col.transform.gameObject);
+
+
         }
         /*
         if (col.gameObject.tag == "ground")

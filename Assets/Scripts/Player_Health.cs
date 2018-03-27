@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Player_Health : MonoBehaviour {
 
-    /*
+
     public int health;
+	/*
     public bool hasDied;
 
 	// Use this for initialization
@@ -46,7 +47,6 @@ public class Player_Health : MonoBehaviour {
 
     void Die ()
     {
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // yield return null;
         /*
