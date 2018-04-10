@@ -17,6 +17,10 @@ public class Enemy_Move : MonoBehaviour {
     public LayerMask blockingLayer;         //Layer on which collision will be checked.
     public int enemyDamage;
 
+    public bool jumper;
+    private bool isGrounded;
+    public int jumpPower;
+
 	// Use this for initialization
 	void Start () {
        target = Player.transform;
@@ -26,6 +30,10 @@ public class Enemy_Move : MonoBehaviour {
        rb2D = GetComponent <Rigidbody2D> ();
 
        playerHealth = Player.GetComponent<Player_Health> ();
+       isGrounded = false;
+       if(jumper) {
+           StartCoroutine(Jump());
+       }
     }
 
 
@@ -148,6 +156,13 @@ public class Enemy_Move : MonoBehaviour {
             Debug.Log("Enemy Attacking");
             attackPlayer();
         }
+        RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
+        if (rayDown != null && rayDown.collider != null && trig.collider.tag != "Player")
+        {
+            isGrounded = true;
+            //anim.SetTrigger("Land");
+            //anim.SetBool("IsGrounded", isGrounded);
+        }
     }
     //OnCantMove is called if Enemy attempts to move into a space occupied by a target
     //and takes a generic parameter T which we use to pass in the component we expect to encounter, in this case target
@@ -160,6 +175,20 @@ public class Enemy_Move : MonoBehaviour {
             attack();
         }
         */
+    }
+    IEnumerator Jump() {
+        // JUMPING CODE
+        bool continueCoroutine = true;
+        while(continueCoroutine) { //variable that enables you to kill routine
+            if (isGrounded) {
+                GetComponent<Rigidbody2D>().AddForce (Vector2.up * jumpPower);
+                isGrounded = false;
+                //anim.SetTrigger("Jump");
+                //anim.SetBool("IsGrounded", isGrounded);
+            }
+            yield return new WaitForSeconds(1f);
+        }
+        Debug.Log("Starting jump routine");
     }
     private void attackPlayer() {
         playerHealth.health = playerHealth.health - enemyDamage;
