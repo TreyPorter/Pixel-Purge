@@ -11427,6 +11427,16 @@ Prefab:
       propertyPath: healthb
       value: 
       objectReference: {fileID: 1934005847}
+    - target: {fileID: 114883579996767754, guid: 8dd7a604050b2004ab063ef10bc76850,
+        type: 2}
+      propertyPath: knockback
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114883579996767754, guid: 8dd7a604050b2004ab063ef10bc76850,
+        type: 2}
+      propertyPath: knockbackLength
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
   m_IsPrefabParent: 0

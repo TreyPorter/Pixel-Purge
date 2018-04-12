@@ -21,7 +21,7 @@ public class Player_Health : MonoBehaviour {
         origSize = healthbar.sizeDelta.x;
 
     }
-	
+
 
 	// Update is called once per frame
 	void Update () {

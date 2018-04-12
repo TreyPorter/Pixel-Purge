@@ -188,7 +188,7 @@ public class Enemy_Move : MonoBehaviour {
             }
             yield return new WaitForSeconds(1f);
         }
-        Debug.Log("Starting jump routine");
+        //Debug.Log("Starting jump routine");
     }
     private void attackPlayer() {
         playerHealth.health = playerHealth.health - enemyDamage;
