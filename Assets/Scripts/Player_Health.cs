@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Player_Health : MonoBehaviour {
 
 
-    public float health;
+    public static float health;
     public float maxhealth;
     public Image healthb;
     RectTransform healthbar;

@@ -1424,6 +1424,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114619717953487816, guid: c227f57aa7d30be499fecc57013a36de,
+        type: 2}
+      propertyPath: enemyDamage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114500990414717054, guid: c227f57aa7d30be499fecc57013a36de, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c227f57aa7d30be499fecc57013a36de, type: 2}
@@ -11610,6 +11615,11 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619717953487816, guid: c227f57aa7d30be499fecc57013a36de,
+        type: 2}
+      propertyPath: enemyDamage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114500990414717054, guid: c227f57aa7d30be499fecc57013a36de, type: 2}

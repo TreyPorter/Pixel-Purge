@@ -609,7 +609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d9cc4a8464f7646883849004c8f96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  maxhealth: 100
+  healthb: {fileID: 0}
 --- !u!114 &114659030962494348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -640,6 +641,8 @@ MonoBehaviour:
   axe: {fileID: 21300000, guid: 498beac160e9f4442ba50f6db510bedc, type: 3}
   lance: {fileID: 0}
   cur: {fileID: 0}
+  knockback: 10
+  knockbackLength: 0.2
 --- !u!114 &114947208351765936
 MonoBehaviour:
   m_ObjectHideFlags: 1

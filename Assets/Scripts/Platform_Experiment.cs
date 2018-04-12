@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Platform_Experiment : MonoBehaviour {
     Collider m_Collider;
-    GameObject players;
+    public GameObject players;
     //players = GameObject.FindGameObjectWithTag("Player");
 
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class Platform_Experiment : MonoBehaviour {
         m_Collider.enabled = false;
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if(players.transform.position.y>=1.82)

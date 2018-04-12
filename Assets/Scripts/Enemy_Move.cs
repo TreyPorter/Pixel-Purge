@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class Enemy_Move : MonoBehaviour {
 
     public GameObject Player;
-    Player_Health playerHealth;
     public int EnemySpeed;
     public int XMoveDirection;
     private BoxCollider2D boxCollider;
@@ -28,8 +27,6 @@ public class Enemy_Move : MonoBehaviour {
        boxCollider = GetComponent <BoxCollider2D> ();
        //Get a component reference to this object's Rigidbody2D
        rb2D = GetComponent <Rigidbody2D> ();
-
-       playerHealth = Player.GetComponent<Player_Health> ();
        isGrounded = false;
        if(jumper) {
            StartCoroutine(Jump());
@@ -191,8 +188,8 @@ public class Enemy_Move : MonoBehaviour {
         //Debug.Log("Starting jump routine");
     }
     private void attackPlayer() {
-        playerHealth.health = playerHealth.health - enemyDamage;
-        Debug.Log("Player Health: " + playerHealth.health);
+        Player_Health.health = Player_Health.health - enemyDamage;
+        Debug.Log("Player Health: " + Player_Health.health);
     }
     void Flip ()
     {
