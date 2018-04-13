@@ -16,7 +16,9 @@ public class Player_Health : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //hasDied = false;
-        health = maxhealth;
+        if(health <= 0) {
+            health = maxhealth;
+        }
         healthbar = healthb.GetComponent<RectTransform>();
         origSize = healthbar.sizeDelta.x;
 

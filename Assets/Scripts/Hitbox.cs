@@ -26,8 +26,6 @@ public class Hitbox : MonoBehaviour {
                 enemy.GetComponent<Enemy_Move>().knockbackEnemy();
                 Debug.Log("Enemy hit");
             }
-
-            //.reduceHealth(1)
         }
     }
 }
