@@ -15,6 +15,9 @@ public class Player_Move_Prot : MonoBehaviour {
     //Sprite curWeapon;
     int curWeapon;
 
+    public static int playerDamage;
+    public int setPlayerDamage;
+
     public GameObject sword;
     public GameObject axe;
     public GameObject lance;
@@ -51,6 +54,7 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("AxeActive", false);
         armAnim.SetBool("LanceActive", false);
 
+        playerDamage = setPlayerDamage;
         knockbackCount = 0;
     }
 
@@ -235,7 +239,6 @@ public class Player_Move_Prot : MonoBehaviour {
             curWeapon = 3;
         }
     }
-
     /*void PlayerRaycast()
     {
         //TODO fix this nasty code too

@@ -1429,6 +1429,16 @@ Prefab:
       propertyPath: enemyDamage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114619717953487816, guid: c227f57aa7d30be499fecc57013a36de,
+        type: 2}
+      propertyPath: knockback
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619717953487816, guid: c227f57aa7d30be499fecc57013a36de,
+        type: 2}
+      propertyPath: knockbackLength
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114500990414717054, guid: c227f57aa7d30be499fecc57013a36de, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c227f57aa7d30be499fecc57013a36de, type: 2}
@@ -3812,6 +3822,16 @@ Prefab:
         type: 2}
       propertyPath: m_UseAutoMass
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619717953487816, guid: c227f57aa7d30be499fecc57013a36de,
+        type: 2}
+      propertyPath: knockback
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619717953487816, guid: c227f57aa7d30be499fecc57013a36de,
+        type: 2}
+      propertyPath: knockbackLength
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114500990414717054, guid: c227f57aa7d30be499fecc57013a36de, type: 2}
@@ -7160,7 +7180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 0
+  EnemyHealth: 20
 --- !u!95 &1294861519
 Animator:
   serializedVersion: 3
@@ -7331,7 +7351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 0
+  EnemyHealth: 5
 --- !u!95 &1386270654
 Animator:
   serializedVersion: 3
@@ -8088,7 +8108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 0
+  EnemyHealth: 50
 --- !u!95 &1586851033
 Animator:
   serializedVersion: 3
@@ -11399,6 +11419,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114657639801221952, guid: 8dd7a604050b2004ab063ef10bc76850,
+        type: 2}
+      propertyPath: healthb
+      value: 
+      objectReference: {fileID: 1934005847}
     - target: {fileID: 114947208351765936, guid: 8dd7a604050b2004ab063ef10bc76850,
         type: 2}
       propertyPath: timeLeftUI
@@ -11409,39 +11434,6 @@ Prefab:
       propertyPath: playerScoreUI
       value: 
       objectReference: {fileID: 1007843365}
-    - target: {fileID: 1122790020587038, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
-      propertyPath: m_Name
-      value: Player (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1122790020587038, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657639801221952, guid: 8dd7a604050b2004ab063ef10bc76850,
-        type: 2}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657639801221952, guid: 8dd7a604050b2004ab063ef10bc76850,
-        type: 2}
-      propertyPath: maxhealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657639801221952, guid: 8dd7a604050b2004ab063ef10bc76850,
-        type: 2}
-      propertyPath: healthb
-      value: 
-      objectReference: {fileID: 1934005847}
-    - target: {fileID: 114883579996767754, guid: 8dd7a604050b2004ab063ef10bc76850,
-        type: 2}
-      propertyPath: knockback
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114883579996767754, guid: 8dd7a604050b2004ab063ef10bc76850,
-        type: 2}
-      propertyPath: knockbackLength
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
   m_IsPrefabParent: 0
@@ -11620,6 +11612,16 @@ Prefab:
         type: 2}
       propertyPath: enemyDamage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619717953487816, guid: c227f57aa7d30be499fecc57013a36de,
+        type: 2}
+      propertyPath: knockback
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619717953487816, guid: c227f57aa7d30be499fecc57013a36de,
+        type: 2}
+      propertyPath: knockbackLength
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114500990414717054, guid: c227f57aa7d30be499fecc57013a36de, type: 2}

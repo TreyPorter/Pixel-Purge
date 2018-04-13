@@ -20,6 +20,11 @@ public class Enemy_Move : MonoBehaviour {
     private bool isGrounded;
     public int jumpPower;
 
+    public float knockback;
+    public float knockbackLength;
+    private float knockbackCount;
+    private bool knockFromRight;
+
 	// Use this for initialization
 	void Start () {
        target = Player.transform;
@@ -31,13 +36,24 @@ public class Enemy_Move : MonoBehaviour {
        if(jumper) {
            StartCoroutine(Jump());
        }
+       knockbackCount = 0;
     }
 
 
     // Update is called once per frame
     void Update () {
-
-        MoveEnemy<MonoBehaviour>();
+        if(knockbackCount <= 0) {
+            MoveEnemy<MonoBehaviour>();
+        }
+        else {
+            if(knockFromRight) {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+            }
+            if(!knockFromRight) {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
         /* Bounce back and forth AI
         hit = Physics2D.Raycast(transform.position, new Vector2(XMoveDirection, 0), 0.7f);
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(XMoveDirection, 0) * EnemySpeed;
@@ -188,8 +204,17 @@ public class Enemy_Move : MonoBehaviour {
         //Debug.Log("Starting jump routine");
     }
     private void attackPlayer() {
-        Player_Health.health = Player_Health.health - enemyDamage;
+        Player_Health.reduceHealth(enemyDamage);
         Debug.Log("Player Health: " + Player_Health.health);
+    }
+    public void knockbackEnemy() {
+        knockbackCount = knockbackLength;
+        if(transform.position.x < target.position.x) {
+            knockFromRight = true;
+        }
+        else {
+            knockFromRight = false;
+        }
     }
     void Flip ()
     {

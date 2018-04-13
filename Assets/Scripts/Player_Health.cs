@@ -41,7 +41,9 @@ public class Player_Health : MonoBehaviour {
         healthbar.sizeDelta = new Vector2(origSize * (health/maxhealth), healthbar.sizeDelta.y);
         //Debug.Log("Orig Size: " + origSize + " percent: " + health / maxhealth);
     }
-
+    public static void reduceHealth(int damage) {
+        health = health-damage;
+    }
 
     /*
     void OnCollisionEnter2D(Collision2D col)

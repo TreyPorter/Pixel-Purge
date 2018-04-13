@@ -8,10 +8,13 @@ public class Enemy_Health : MonoBehaviour {
     public int EnemyHealth;
     void Update()
     {
-        if (gameObject.transform.position.y < -20)
+        if (gameObject.transform.position.y < -20 || EnemyHealth <= 0)
         {
             //Debug.Log("Enemy Has Died");
             Destroy(gameObject);
         }
+    }
+    public void reduceHealth(int damage) {
+        EnemyHealth = EnemyHealth-damage;
     }
 }
