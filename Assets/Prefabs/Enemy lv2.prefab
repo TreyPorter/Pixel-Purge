@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114699068567172370}
   - component: {fileID: 114927267040230526}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: Enemy lv2
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyHealth: 0
 --- !u!114 &114699068567172370
 MonoBehaviour:
   m_ObjectHideFlags: 1
