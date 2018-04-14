@@ -14,7 +14,6 @@ public class RangedController : MonoBehaviour {
 
 		if (user.transform.localScale.x < 0)
 			speed = -speed;
-            flipSprite();
 	}
 	
 	// Update is called once per frame
@@ -22,12 +21,7 @@ public class RangedController : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (speed, GetComponent<Rigidbody2D>().velocity.y);
 	}
 
-    void flipSprite()
-    {
-        Vector2 localScale = gameObject.transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
-    }
+    
 
     void OnTriggerEnter2D(Collider2D other){
 

@@ -3798,6 +3798,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 212393410766194210, guid: 2e456d2fd7c685740ac5eab2bf46d6f9,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a5014139e6793d488cf77dac331660b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e456d2fd7c685740ac5eab2bf46d6f9, type: 2}
   m_IsPrefabParent: 0
@@ -10381,7 +10387,7 @@ GameObject:
   - component: {fileID: 1937613931}
   m_Layer: 0
   m_Name: Jump_Collider_1 (1)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11900,6 +11906,16 @@ Prefab:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 1138616670}
+    - target: {fileID: 114883579996767754, guid: 8dd7a604050b2004ab063ef10bc76850,
+        type: 2}
+      propertyPath: setPlayerDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114883579996767754, guid: 8dd7a604050b2004ab063ef10bc76850,
+        type: 2}
+      propertyPath: knockback
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
   m_IsPrefabParent: 0
@@ -12281,6 +12297,11 @@ Prefab:
         type: 2}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114745419311477220, guid: 047f896fe5245fd4d93d051cc44d2a1d,
+        type: 2}
+      propertyPath: EnemyHealth
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}

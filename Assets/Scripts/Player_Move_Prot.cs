@@ -15,15 +15,18 @@ public class Player_Move_Prot : MonoBehaviour {
     //Sprite curWeapon;
     int curWeapon;
 
+    //Stats
     public static int playerDamage;
     public int setPlayerDamage;
+    private int weaponDamage;
+    private double weaponKnockback;
 
     public GameObject sword;
     public GameObject axe;
     public GameObject lance;
     public GameObject cur;
 
-    public float knockback;
+    private float knockback;
     public float knockbackLength;
     private float knockbackCount;
     private bool knockFromRight;
@@ -97,7 +100,9 @@ public class Player_Move_Prot : MonoBehaviour {
             FlipPlayer ();
         }
         // PHYSICS
-        if(knockbackCount <= 0) {
+        weaponMod();
+        knockback = 5 * (float)weaponKnockback;
+        if (knockbackCount <= 0) {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
         }
         else {
@@ -168,7 +173,7 @@ public class Player_Move_Prot : MonoBehaviour {
             if (rayDown != null && rayDown.collider != null)
             {
                 //Debug.Log("Squished enemy");
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * (300));
                 Debug.Log("Player pushed up");
                 /*rayDown.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
                 rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
@@ -209,6 +214,25 @@ public class Player_Move_Prot : MonoBehaviour {
         }
         */
 
+    }
+
+    void weaponMod()
+    {
+        if (curWeapon == 1) // sword: fast, light
+        {
+            weaponDamage = 3;
+            weaponKnockback = 1.5;
+        }
+        else if(curWeapon == 2) // axe: slow, strong
+        {
+            weaponDamage = 5;
+            weaponKnockback = 1;
+        }
+        else    // lance: large, weak
+        {
+            weaponDamage = 1;
+            weaponKnockback = 2;
+        }
     }
 
     void Animate()
