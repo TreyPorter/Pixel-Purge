@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemy_Move : MonoBehaviour {
 
-    Player_Health playerHealth;
+    public GameObject Player;
     public int EnemySpeed;
     public int XMoveDirection;
     private BoxCollider2D boxCollider;
@@ -14,33 +14,56 @@ public class Enemy_Move : MonoBehaviour {
     RaycastHit2D hit;
     private Transform target;
     public LayerMask blockingLayer;         //Layer on which collision will be checked.
+    public int enemyDamage;
+
+    public bool jumper;
+    private bool isGrounded;
+    public int jumpPower;
+
+    public float knockback;
+    public float knockbackLength;
+    private float knockbackCount;
+    private bool knockFromRight;
 
 	// Use this for initialization
 	void Start () {
-       target = GameObject.FindGameObjectWithTag("Player").transform;
+       target = Player.transform;
        //Get a component reference to this object's BoxCollider2D
        boxCollider = GetComponent <BoxCollider2D> ();
        //Get a component reference to this object's Rigidbody2D
        rb2D = GetComponent <Rigidbody2D> ();
-
-       playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent <Player_Health> ();
+       isGrounded = false;
+       if(jumper) {
+           StartCoroutine(Jump());
+       }
+       knockbackCount = 0;
     }
 
 
     // Update is called once per frame
     void Update () {
-
-        MoveEnemy<MonoBehaviour>();
+        if(knockbackCount <= 0) {
+            MoveEnemy<MonoBehaviour>();
+        }
+        else {
+            if(knockFromRight) {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+            }
+            if(!knockFromRight) {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
         /* Bounce back and forth AI
         hit = Physics2D.Raycast(transform.position, new Vector2(XMoveDirection, 0), 0.7f);
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(XMoveDirection, 0) * EnemySpeed;
         if(hit.collider != null)
         {
-            Flip();
-            if(hit.collider.tag == "target")
+            if (hit.collider.tag != "weapon") { Flip(); }
+            if(hit.collider.tag == "Player")
             {
                 Destroy(hit.collider.gameObject); // Destroys objects it touches
-                SceneManager.LoadScene("Prototype2");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             //Destroy(hit.collider.gameObject); // Destroys objec
 
@@ -146,6 +169,13 @@ public class Enemy_Move : MonoBehaviour {
             Debug.Log("Enemy Attacking");
             attackPlayer();
         }
+        RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
+        if (rayDown != null && rayDown.collider != null && trig.collider.tag != "Player")
+        {
+            isGrounded = true;
+            //anim.SetTrigger("Land");
+            //anim.SetBool("IsGrounded", isGrounded);
+        }
     }
     //OnCantMove is called if Enemy attempts to move into a space occupied by a target
     //and takes a generic parameter T which we use to pass in the component we expect to encounter, in this case target
@@ -159,19 +189,48 @@ public class Enemy_Move : MonoBehaviour {
         }
         */
     }
+    IEnumerator Jump() {
+        // JUMPING CODE
+        bool continueCoroutine = true;
+        while(continueCoroutine) { //variable that enables you to kill routine
+            if (isGrounded) {
+                GetComponent<Rigidbody2D>().AddForce (Vector2.up * jumpPower);
+                isGrounded = false;
+                //anim.SetTrigger("Jump");
+                //anim.SetBool("IsGrounded", isGrounded);
+            }
+            yield return new WaitForSeconds(1f);
+        }
+        //Debug.Log("Starting jump routine");
+    }
     private void attackPlayer() {
-        playerHealth.health = playerHealth.health-10;
-        Debug.Log("Player Health: " + playerHealth.health);
+        Player_Health.reduceHealth(enemyDamage);
+        Debug.Log("Player Health: " + Player_Health.health);
+    }
+    public void knockbackEnemy() {
+        knockbackCount = knockbackLength;
+        if(transform.position.x < target.position.x) {
+            knockFromRight = true;
+        }
+        else {
+            knockFromRight = false;
+        }
     }
     void Flip ()
     {
         if( XMoveDirection > 0)
         {
             XMoveDirection = -1;
+            Vector2 localScale = gameObject.transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
         }
         else
         {
             XMoveDirection = 1;
+            Vector2 localScale = gameObject.transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
         }
     }
 }
