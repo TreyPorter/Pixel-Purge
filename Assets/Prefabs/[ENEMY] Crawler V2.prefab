@@ -27,7 +27,6 @@ GameObject:
   - component: {fileID: 114991349410717360}
   - component: {fileID: 114543202954769230}
   - component: {fileID: 114895521511530028}
-  - component: {fileID: 61146839515591484}
   m_Layer: 0
   m_Name: '[ENEMY] Crawler V2'
   m_TagString: enemy
@@ -42,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1994554974768288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -1.57, z: 0.19921875}
+  m_LocalPosition: {x: 8.77, y: -1.07, z: 0.19921875}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68,31 +67,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61146839515591484
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1994554974768288}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 1.04, y: 1.04}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
-  m_EdgeRadius: 0
 --- !u!61 &61815540470518202
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -109,7 +83,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.04, y: 1.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -127,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 1994554974768288}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0d1c9a1e0f6944a4ea26d36791f1bf34, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e3dab5e221b25844b3a88db17eeb418, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -194,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 5
+  EnemyHealth: 30
 --- !u!114 &114991349410717360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,7 +220,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ce7572728d93f0e4a9598e2623927025, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2294bc3fe90d2f45a71dc0ee127f12e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
