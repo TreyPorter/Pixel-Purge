@@ -9,9 +9,7 @@ public class Player_Health : MonoBehaviour {
 
     public static float health;
     public float maxhealth;
-    public Image healthb;
-    RectTransform healthbar;
-    float origSize;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -19,9 +17,6 @@ public class Player_Health : MonoBehaviour {
         if(health <= 0) {
             health = maxhealth;
         }
-        healthbar = healthb.GetComponent<RectTransform>();
-        origSize = healthbar.sizeDelta.x;
-
     }
 
 
@@ -40,7 +35,7 @@ public class Player_Health : MonoBehaviour {
             StartCoroutine("Die");
         }
         */
-        healthbar.sizeDelta = new Vector2(origSize * (health/maxhealth), healthbar.sizeDelta.y);
+        
         //Debug.Log("Orig Size: " + origSize + " percent: " + health / maxhealth);
     }
     public static void reduceHealth(int damage) {
