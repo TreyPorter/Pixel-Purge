@@ -33,6 +33,9 @@ public class Player_Move_Prot : MonoBehaviour {
     //public GameObject npcTextUI;
     //public NPC sample;
 
+	//Ranged Weapon Addition
+	public Transform firePoint;
+	public GameObject projectile;
 
     // Use this for initialization
     void Start () {
@@ -65,9 +68,16 @@ public class Player_Move_Prot : MonoBehaviour {
         PlayerMove();
         //PlayerRaycast();
         Animate();
+		Ranged ();
 
     }
 
+	void Ranged()
+	{
+		if (Input.GetButtonDown ("Shoot")) {
+			Instantiate (projectile, firePoint.position, firePoint.rotation);
+		}
+	}
     void PlayerMove()
     {
         // CONTROLS
@@ -153,7 +163,7 @@ public class Player_Move_Prot : MonoBehaviour {
             anim.SetTrigger("Land");
             anim.SetBool("IsGrounded", isGrounded);
         }
-        if(col.collider.tag == "enemy") {
+        if(col.collider.tag == "enemy" || col.collider.tag == "boss_weapon") {
             knockbackCount = knockbackLength;
             if (rayDown != null && rayDown.collider != null)
             {
