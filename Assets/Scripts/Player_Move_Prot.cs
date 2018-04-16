@@ -13,7 +13,9 @@ public class Player_Move_Prot : MonoBehaviour {
     Animator armAnim;
     //GameObject Weapon;
     //Sprite curWeapon;
-    int curWeapon;
+    public int curWeapon;
+    //float dashCD;
+    bool disable; 
 
     public GameObject sword;
     public GameObject axe;
@@ -45,40 +47,53 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("SwordActive", true);
         armAnim.SetBool("AxeActive", false);
         armAnim.SetBool("LanceActive", false);
+        //dashCD = 0;
+        disable = false;
     }
 
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         Attack();
         PlayerMove();
         //PlayerRaycast();
         Animate();
-        
+        //if(dashCD > 0) { dashCD -= Time.deltaTime; }
     }
 
     void PlayerMove()
     {
         // CONTROLS
         moveX = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump") && isGrounded == true && disable == false)
         {
             Jump();
         }
+        /*if (Input.GetKeyDown("c") && dashCD <= 0)
+        {
+            StartCoroutine(Dash());
+        }*/
         // ANIMATIONS
         // PLAYER DIRECTION
-        if (moveX < 0.0f && facingLeft == false)
+        if (moveX < 0.0f && facingLeft == false && disable == false)
         {
             FlipPlayer();
         }
-        else if(moveX > 0.0f && facingLeft == true)
+        else if (moveX > 0.0f && facingLeft == true && disable == false)
         {
-            FlipPlayer ();
+            FlipPlayer();
         }
         // PHYSICS
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        /*if(Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) < playerSpeed * moveX)
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * moveX * playerSpeed);
+        }*/
+        if (disable == false)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+    
+        }
     }
-
     void Jump()
     {
         // JUMPING CODE
@@ -88,11 +103,23 @@ public class Player_Move_Prot : MonoBehaviour {
         anim.SetBool("IsGrounded", isGrounded);
     }
 
+/*    IEnumerator Dash()
+    {
+        // DASH CODE
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * playerJumpPower * moveX * playerSpeed * 100, ForceMode2D.Impulse);
+        dashCD = 1;
+        //isGrounded = false;
+        anim.SetTrigger("Jump");
+        yield return null;
+        //anim.SetBool("IsGrounded", isGrounded);
+    }*/
+
     void Attack()
     {
         if (Input.GetKeyDown("z") == true || Input.GetKey("z") == true) {
             //armAnim.SetBool("IsAttacking", true);
             armAnim.SetTrigger("Attack");
+
         }
         /*else {
             armAnim.SetBool("IsAttacking", false);
@@ -206,6 +233,12 @@ public class Player_Move_Prot : MonoBehaviour {
             armAnim.SetBool("AxeActive", false);
             curWeapon = 3;
         }
+    }
+
+    public void Die()
+    {
+        disable = true;
+        anim.SetTrigger("GameOver");
     }
 
     /*void PlayerRaycast()
