@@ -18,7 +18,7 @@ public class Player_Score : MonoBehaviour {
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
         if (timeLeft < 0.1f)
         {
-            SceneManager.LoadScene("Prototype1");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
        //Debug.Log(timeLeft);
 	}

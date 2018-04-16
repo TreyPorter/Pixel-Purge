@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player_Move_Prot : MonoBehaviour {
 
     public int playerSpeed = 10;
-    public bool canMove;
     private bool facingLeft = false;
     public int playerJumpPower = 1250;
     private float moveX;
@@ -34,6 +33,9 @@ public class Player_Move_Prot : MonoBehaviour {
     //public GameObject npcTextUI;
     //public NPC sample;
 
+	//Ranged Weapon Addition
+	public Transform firePoint;
+	public GameObject projectile;
 
     // Use this for initialization
     void Start () {
@@ -66,16 +68,18 @@ public class Player_Move_Prot : MonoBehaviour {
         PlayerMove();
         //PlayerRaycast();
         Animate();
+		Ranged ();
 
     }
 
+	void Ranged()
+	{
+		if (Input.GetButtonDown ("Shoot")) {
+			Instantiate (projectile, firePoint.position, firePoint.rotation);
+		}
+	}
     void PlayerMove()
     {
-        /*
-        if(!canMove)
-        {
-            return;
-        }*/
         // CONTROLS
         moveX = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && isGrounded == true)
@@ -159,7 +163,10 @@ public class Player_Move_Prot : MonoBehaviour {
             anim.SetTrigger("Land");
             anim.SetBool("IsGrounded", isGrounded);
         }
-        if(col.collider.tag == "enemy") {
+        if(col.collider.tag == "enemy" || col.collider.tag == "boss_weapon" || col.collider.tag == "boss" ) {
+            if(col.collider.tag == "boss" || col.collider.tag == "boss_weapon") {
+                Player_Health.health -= 5;
+            }
             knockbackCount = knockbackLength;
             if (rayDown != null && rayDown.collider != null)
             {
@@ -245,8 +252,6 @@ public class Player_Move_Prot : MonoBehaviour {
             curWeapon = 3;
         }
     }
-
-   
     /*void PlayerRaycast()
     {
         //TODO fix this nasty code too
