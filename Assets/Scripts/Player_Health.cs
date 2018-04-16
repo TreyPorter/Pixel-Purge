@@ -7,24 +7,32 @@ using UnityEngine.UI;
 public class Player_Health : MonoBehaviour {
 
 
-    public float health;
+    public static float health;
     public float maxhealth;
+
     public Image healthb;
     RectTransform healthbar;
     float origSize;
     float delay;
     bool dead;
 
+
 	// Use this for initialization
 	void Start () {
         //hasDied = false;
+
         health = maxhealth;
         healthbar = healthb.GetComponent<RectTransform>();
         origSize = healthbar.sizeDelta.x;
         delay = 10;
         dead = false;
+
+        if(health <= 0) {
+            health = maxhealth;
+        }
+
     }
-	
+
 
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -43,10 +51,12 @@ public class Player_Health : MonoBehaviour {
             StartCoroutine("Die");
         }
         */
-        healthbar.sizeDelta = new Vector2(origSize * (health/maxhealth), healthbar.sizeDelta.y);
+        
         //Debug.Log("Orig Size: " + origSize + " percent: " + health / maxhealth);
     }
-
+    public static void reduceHealth(int damage) {
+        health = health-damage;
+    }
 
     /*
     void OnCollisionEnter2D(Collision2D col)

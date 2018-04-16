@@ -17,16 +17,27 @@ public class Player_Move_Prot : MonoBehaviour {
     //float dashCD;
     bool disable; 
 
+    public static int playerDamage;
+    public int setPlayerDamage;
+
     public GameObject sword;
     public GameObject axe;
     public GameObject lance;
     public GameObject cur;
+
+    public float knockback;
+    public float knockbackLength;
+    private float knockbackCount;
+    private bool knockFromRight;
     // public bool isDead;
 
     //NPC talking, moved in NPC
     //public GameObject npcTextUI;
     //public NPC sample;
 
+	//Ranged Weapon Addition
+	public Transform firePoint;
+	public GameObject projectile;
 
     // Use this for initialization
     void Start () {
@@ -49,18 +60,31 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("LanceActive", false);
         //dashCD = 0;
         disable = false;
+
+
+        playerDamage = setPlayerDamage;
+        knockbackCount = 0;
+
     }
 
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
         Attack();
         PlayerMove();
         //PlayerRaycast();
         Animate();
+
         //if(dashCD > 0) { dashCD -= Time.deltaTime; }
+		  Ranged ();
     }
 
+	void Ranged()
+	{
+		if (Input.GetButtonDown ("Shoot")) {
+			Instantiate (projectile, firePoint.position, firePoint.rotation);
+		}
+	}
     void PlayerMove()
     {
         // CONTROLS
@@ -84,14 +108,22 @@ public class Player_Move_Prot : MonoBehaviour {
             FlipPlayer();
         }
         // PHYSICS
-        /*if(Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) < playerSpeed * moveX)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * moveX * playerSpeed);
-        }*/
-        if (disable == false)
+        /*if (disable == false)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
     
+        }*/
+        if(knockbackCount <= 0 && disable == false) {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        }
+        else {
+            if(knockFromRight) {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+            }
+            if(!knockFromRight) {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
         }
     }
     void Jump()
@@ -149,37 +181,46 @@ public class Player_Move_Prot : MonoBehaviour {
         }
 
         RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
-        RaycastHit2D rayRight = Physics2D.Raycast(transform.position, Vector2.right);
-        RaycastHit2D rayLeft = Physics2D.Raycast(transform.position, Vector2.left);
+        //RaycastHit2D rayRight = Physics2D.Raycast(transform.position, Vector2.right);
+        //RaycastHit2D rayLeft = Physics2D.Raycast(transform.position, Vector2.left);
         if (rayDown != null && rayDown.collider != null && col.collider.tag != "enemy")
         {
             isGrounded = true;
             anim.SetTrigger("Land");
             anim.SetBool("IsGrounded", isGrounded);
         }
+        if(col.collider.tag == "enemy" || col.collider.tag == "boss_weapon") {
+            knockbackCount = knockbackLength;
+            if (rayDown != null && rayDown.collider != null)
+            {
+                //Debug.Log("Squished enemy");
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
+                Debug.Log("Player pushed up");
+                /*rayDown.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
+                rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
+                rayDown.collider.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
+                rayDown.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                rayDown.collider.gameObject.GetComponent<Enemy_Move>().enabled = false;*/
 
-        if (rayDown != null && rayDown.collider != null && col.collider.tag == "enemy")
-        {
-            //Debug.Log("Squished enemy");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
-            if(rayRight != null && rayRight.collider != null) {
+                //Mario Style Method
+                //Destroy(col.transform.gameObject);
+            }
+            if(transform.position.x < col.transform.position.x) {
+                knockFromRight = true;
+                /*
                 GetComponent<Rigidbody2D>().AddForce(Vector2.left * 1000);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 100);
                 Debug.Log("Player pushed left");
+                */
             }
-            else if(rayLeft != null && rayLeft.collider != null) {
+            else {
+                knockFromRight = false;
+                /*
                 GetComponent<Rigidbody2D>().AddForce(Vector2.right * 1000);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 100);
                 Debug.Log("Player pushed rught");
+                */
             }
-            /*rayDown.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
-            rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
-            rayDown.collider.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
-            rayDown.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            rayDown.collider.gameObject.GetComponent<Enemy_Move>().enabled = false;*/
-
-            //Mario Style Method
-            //Destroy(col.transform.gameObject);
-
-
         }
         /*
         if (col.gameObject.tag == "ground")
