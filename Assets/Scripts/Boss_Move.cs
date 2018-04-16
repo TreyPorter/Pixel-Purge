@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,9 +88,12 @@ public class Boss_Move : MonoBehaviour {
 			//Vector2 localScale = gameObject.transform.localScale;
 			StartCoroutine(TurnAround(localScale));
 		}
-		if(target.position.x - transform.position.x <= 7 && target.position.x - transform.position.x >= -7) {
+		if(target.position.x - transform.position.x >= -7 && target.position.x - transform.position.x <= 7 && localScale.x*(target.position.x - transform.position.x) >= 0) {//&& localScale.x > 0) {
 			animator.SetTrigger("skill_1");
-		}
+		}/*
+		if (target.position.x - transform.position.x >= -7 && localScale.x < 0) {
+			animator.SetTrigger("skill_1");
+		}*/
 		if (path == null)
 			return;
 
@@ -119,7 +123,7 @@ public class Boss_Move : MonoBehaviour {
 		}
 	}
 	IEnumerator TurnAround(Vector2 localScale) {
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(4);
 		localScale.x *= -1;
 		transform.localScale = localScale;
 	}
