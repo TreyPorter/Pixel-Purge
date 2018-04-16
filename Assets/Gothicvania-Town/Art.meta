@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Gothicvania-Town/Art.meta
 guid: 2a69a8e10bf97ff418af2443db61ba4c
 folderAsset: yes
 timeCreated: 1523905956
+=======
+guid: 0aa42cf94b5e86142aecf6767637027b
+folderAsset: yes
+timeCreated: 1523828146
+>>>>>>> 1d31b2d48bffb76cee7dbaab850e219c59e29380:Assets/Gothicvania-Town/Art.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
