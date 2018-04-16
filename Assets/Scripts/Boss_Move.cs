@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +36,7 @@ public class Boss_Move : MonoBehaviour {
 		private int currentWaypoint = 0;
 		private Animator animator;
 
+		public int bumpDamage;
 	void Start(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
@@ -81,7 +81,7 @@ public class Boss_Move : MonoBehaviour {
 			return;
 		}
 
-		Debug.Log(target.position.x + ", " + transform.position.x);
+		//Debug.Log(target.position.x + ", " + transform.position.x);
 		Vector2 localScale = gameObject.transform.localScale;
 		if((target.position.x < transform.position.x && localScale.x > 0) || (target.position.x > transform.position.x && localScale.x < 0)) {
 			//Debug.Log(target.position.x + ", " + transform.position.x);
@@ -122,6 +122,18 @@ public class Boss_Move : MonoBehaviour {
 			return;
 		}
 	}
+	private void OnCollisionEnter2D(Collision2D trig)
+	{
+		if (trig.gameObject.tag == "Player")
+		{
+			Debug.Log("Boss Attacking");
+			attackPlayer();
+		}
+	}
+	private void attackPlayer() {
+        Player_Health.reduceHealth(bumpDamage);
+        Debug.Log("Player Health: " + Player_Health.health);
+    }
 	IEnumerator TurnAround(Vector2 localScale) {
 		yield return new WaitForSeconds(4);
 		localScale.x *= -1;

@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour {
 	/* Variables/Objects */
 		//Which object to chase?
 		public Transform target;
-		
+
 		//How many times each second we will update our path
 		public float updateRate = 2f;
 
@@ -31,9 +31,11 @@ public class EnemyAI : MonoBehaviour {
 
 		//Max distance from AI to a waypoint for it to continue to the next waypoint (lol)
 		public float nextWaypointDistance = 3;
-		
+
 		//The waypoint we are currently moving towards
 		private int currentWaypoint = 0;
+
+		public int enemyDamage;
 
 	void Start(){
 		seeker = GetComponent<Seeker> ();
@@ -58,7 +60,7 @@ public class EnemyAI : MonoBehaviour {
 		}
 		//Start a new path to the target position, return the result to the OnPathComplete function
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
-			
+
 		yield return new WaitForSeconds (1f / updateRate);
 		StartCoroutine (UpdatePath ());
 	}
@@ -70,7 +72,18 @@ public class EnemyAI : MonoBehaviour {
 			currentWaypoint = 0;
 		}
 	}
-
+	private void OnCollisionEnter2D(Collision2D trig)
+	{
+		if (trig.gameObject.tag == "Player")
+		{
+			Debug.Log("Enemy Attacking");
+			attackPlayer();
+		}
+	}
+	private void attackPlayer() {
+        Player_Health.reduceHealth(enemyDamage);
+        Debug.Log("Player Health: " + Player_Health.health);
+    }
 	/* Fixed update rate, great for physics calculations, substitute for void Update() */
 	void FixedUpdate(){
 		if (target == null) {

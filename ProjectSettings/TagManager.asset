@@ -12,6 +12,7 @@ TagManager:
   - box_3
   - weapon
   - boss_weapon
+  - boss
   layers:
   - Default
   - TransparentFX

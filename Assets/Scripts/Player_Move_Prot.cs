@@ -163,7 +163,10 @@ public class Player_Move_Prot : MonoBehaviour {
             anim.SetTrigger("Land");
             anim.SetBool("IsGrounded", isGrounded);
         }
-        if(col.collider.tag == "enemy" || col.collider.tag == "boss_weapon") {
+        if(col.collider.tag == "enemy" || col.collider.tag == "boss_weapon" || col.collider.tag == "boss" ) {
+            if(col.collider.tag == "boss" || col.collider.tag == "boss_weapon") {
+                Player_Health.health -= 5;
+            }
             knockbackCount = knockbackLength;
             if (rayDown != null && rayDown.collider != null)
             {

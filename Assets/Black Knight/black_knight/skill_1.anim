@@ -9154,7 +9154,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.5
-    functionName: AttackStart
+    functionName: activateHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
