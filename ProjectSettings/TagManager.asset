@@ -10,6 +10,8 @@ TagManager:
   - coin
   - npc
   - box_3
+  - weapon
+  - boss_weapon
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 

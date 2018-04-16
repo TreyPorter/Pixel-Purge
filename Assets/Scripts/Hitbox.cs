@@ -27,7 +27,9 @@ public class Hitbox : MonoBehaviour {
                 Debug.Log("Enemy hit");
             }
 
+
             //.reduceHealth(1)
+
         }
     }
 }
