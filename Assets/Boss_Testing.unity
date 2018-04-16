@@ -11099,48 +11099,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ab18de7b4349134992723fde9403a26, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1051902602 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1152282896264712, guid: c983ee50f9f185543a457f7312092f8f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1704059610}
---- !u!114 &1051902603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1051902602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyHealth: 10
---- !u!61 &1051902604
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1051902602}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 110}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 180, y: 220}
-  m_EdgeRadius: 0
 --- !u!4 &1052684818 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4599370860024790, guid: 430d2b0787f01ad468c1bbbf2c4c07dc,
@@ -16996,11 +16954,6 @@ Prefab:
     - target: {fileID: 1152282896264712, guid: c983ee50f9f185543a457f7312092f8f, type: 2}
       propertyPath: m_Name
       value: BOSS SKELE KNIGHT
-      objectReference: {fileID: 0}
-    - target: {fileID: 61082700792779418, guid: c983ee50f9f185543a457f7312092f8f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c983ee50f9f185543a457f7312092f8f, type: 2}
