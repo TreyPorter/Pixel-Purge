@@ -12434,6 +12434,17 @@ Prefab:
       propertyPath: EnemyHealth
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 95449598142955102, guid: 047f896fe5245fd4d93d051cc44d2a1d,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fe70d2096169f8a4bb339fbaa3afdc2d, type: 2}
+    - target: {fileID: 212905362562020228, guid: 047f896fe5245fd4d93d051cc44d2a1d,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3d76ef56e44e99e4db1e4210a5490c9e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
   m_IsPrefabParent: 0
