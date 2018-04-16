@@ -35,7 +35,7 @@ public class Enemy_Move : MonoBehaviour {
        //Get a component reference to this object's Rigidbody2D
        rb2D = GetComponent <Rigidbody2D> ();
        isGrounded = false;
-       if(jumper) {
+       if(jumper) { // For jumping
            StartCoroutine(Jump());
        }
        knockbackCount = 0;
