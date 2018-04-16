@@ -13,7 +13,9 @@ public class Player_Move_Prot : MonoBehaviour {
     Animator armAnim;
     //GameObject Weapon;
     //Sprite curWeapon;
-    int curWeapon;
+    public int curWeapon;
+    //float dashCD;
+    bool disable; 
 
     public static int playerDamage;
     public int setPlayerDamage;
@@ -56,20 +58,25 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("SwordActive", true);
         armAnim.SetBool("AxeActive", false);
         armAnim.SetBool("LanceActive", false);
+        //dashCD = 0;
+        disable = false;
+
 
         playerDamage = setPlayerDamage;
         knockbackCount = 0;
+
     }
 
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         Attack();
         PlayerMove();
         //PlayerRaycast();
         Animate();
-		Ranged ();
 
+        //if(dashCD > 0) { dashCD -= Time.deltaTime; }
+		  Ranged ();
     }
 
 	void Ranged()
@@ -82,22 +89,31 @@ public class Player_Move_Prot : MonoBehaviour {
     {
         // CONTROLS
         moveX = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump") && isGrounded == true && disable == false)
         {
             Jump();
         }
+        /*if (Input.GetKeyDown("c") && dashCD <= 0)
+        {
+            StartCoroutine(Dash());
+        }*/
         // ANIMATIONS
         // PLAYER DIRECTION
-        if (moveX < 0.0f && facingLeft == false)
+        if (moveX < 0.0f && facingLeft == false && disable == false)
         {
             FlipPlayer();
         }
-        else if(moveX > 0.0f && facingLeft == true)
+        else if (moveX > 0.0f && facingLeft == true && disable == false)
         {
-            FlipPlayer ();
+            FlipPlayer();
         }
         // PHYSICS
-        if(knockbackCount <= 0) {
+        /*if (disable == false)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+    
+        }*/
+        if(knockbackCount <= 0 && disable == false) {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
         }
         else {
@@ -109,9 +125,7 @@ public class Player_Move_Prot : MonoBehaviour {
             }
             knockbackCount -= Time.deltaTime;
         }
-
     }
-
     void Jump()
     {
         // JUMPING CODE
@@ -121,11 +135,23 @@ public class Player_Move_Prot : MonoBehaviour {
         anim.SetBool("IsGrounded", isGrounded);
     }
 
+/*    IEnumerator Dash()
+    {
+        // DASH CODE
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * playerJumpPower * moveX * playerSpeed * 100, ForceMode2D.Impulse);
+        dashCD = 1;
+        //isGrounded = false;
+        anim.SetTrigger("Jump");
+        yield return null;
+        //anim.SetBool("IsGrounded", isGrounded);
+    }*/
+
     void Attack()
     {
         if (Input.GetKeyDown("z") == true || Input.GetKey("z") == true) {
             //armAnim.SetBool("IsAttacking", true);
             armAnim.SetTrigger("Attack");
+
         }
         /*else {
             armAnim.SetBool("IsAttacking", false);
@@ -252,6 +278,13 @@ public class Player_Move_Prot : MonoBehaviour {
             curWeapon = 3;
         }
     }
+
+    public void Die()
+    {
+        disable = true;
+        anim.SetTrigger("GameOver");
+    }
+
     /*void PlayerRaycast()
     {
         //TODO fix this nasty code too
