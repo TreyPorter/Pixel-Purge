@@ -14,114 +14,114 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Proto3.unity
     guid: fef10f18e6c13c9459132df7182101cd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Encounter_1.unity
     guid: eba504da2e964f144b8fca7561cad731
   - enabled: 1
     path: Assets/Prototype2.unity
     guid: fc819514a7a5c5841a9c9019a55f1ef8
   - enabled: 1
-    path: Assets/House1.unity
+    path: Assets/Scripts/House1Scenes/House1.unity
     guid: 5035ef9b6f201b846932d1c44874c7f0
   - enabled: 1
-    path: Assets/Town1Door.unity
+    path: Assets/Scenes/Town1Scenes/Town1Door.unity
     guid: 7384651127e1b8143950ffccc778450b
   - enabled: 1
-    path: Assets/H_3_1_5.unity
+    path: Assets/Scenes/House3Scenes/H_3_1_5.unity
     guid: b4965fc59bbfc21408467d16a2a56cac
   - enabled: 1
-    path: Assets/Sequence1-2.unity
+    path: Assets/Scenes/Area1Scenes/Sequence1-2.unity
     guid: b68fac968310f584b95cc169aea1b72a
   - enabled: 1
-    path: Assets/Sequence1-1-1unity.unity
+    path: Assets/Scenes/Area1Scenes/Sequence1-1-1unity.unity
     guid: c4352483cc41cc54bb22a31ca29d938d
   - enabled: 1
-    path: Assets/Well3.unity
+    path: Assets/Scenes/WellScenes/Well3.unity
     guid: 2baf8b9c3844be249b369fa2f395e573
   - enabled: 1
-    path: Assets/Sequence1-3.unity
+    path: Assets/Scenes/Area1Scenes/Sequence1-3.unity
     guid: 0046eaca892c8c843a3b5e384b8b9690
   - enabled: 1
-    path: Assets/house1-1.unity
+    path: Assets/Scripts/House1Scenes/house1-1.unity
     guid: a1f72b6ec0f546a40b1a56405febb6d8
   - enabled: 1
-    path: Assets/Sequence1-3-1.unity
+    path: Assets/Scenes/Area1Scenes/Sequence1-3-1.unity
     guid: d72d326c765604044b5b69c6dd2aa1f3
   - enabled: 1
-    path: Assets/Sequence1-1.unity
+    path: Assets/Scenes/Area1Scenes/Sequence1-1.unity
     guid: 878c6e030bf517449b221b1577b06253
   - enabled: 1
-    path: Assets/Sequence1-1-3.unity
+    path: Assets/Scenes/Area1Scenes/Sequence1-1-3.unity
     guid: 8877d5857c63cb742b6b1a57a115b170
   - enabled: 1
-    path: Assets/Sequence1-1-2.unity
+    path: Assets/Scenes/Area1Scenes/Sequence1-1-2.unity
     guid: c875cc12d2bd4874188fd55189a698ec
   - enabled: 1
-    path: Assets/Sequence1-5.unity
+    path: Assets/MiscScenes/Sequence1-5.unity
     guid: 99412260906495748b0589d69dd2de47
   - enabled: 1
-    path: Assets/House3.unity
+    path: Assets/Scenes/House3Scenes/House3.unity
     guid: 3edc02bc7cdf54d448936fade62db4d6
   - enabled: 1
-    path: Assets/House3-1.unity
+    path: Assets/Scenes/House3Scenes/House3-1.unity
     guid: 7aae96b35d48234409f1ee8f9705c308
   - enabled: 1
-    path: Assets/WellSecond.unity
+    path: Assets/Scenes/WellScenes/WellSecond.unity
     guid: 5c476865f334105479cdc8737c84a548
   - enabled: 1
-    path: Assets/House3-1-1.unity
+    path: Assets/Scenes/House3Scenes/House3-1-1.unity
     guid: 8fea9094890941141aac80173c077abd
   - enabled: 1
-    path: Assets/Town1.unity
+    path: Assets/Scenes/Town1Scenes/Town1.unity
     guid: 1ee3d71845656f14788b808663639e2c
   - enabled: 1
-    path: Assets/town1-1.unity
+    path: Assets/Scenes/Town1Scenes/town1-1.unity
     guid: 7a03baf5602d64146bed7150634212ae
   - enabled: 1
-    path: Assets/town1-1wellBefore.unity
+    path: Assets/Scenes/Town1Scenes/town1-1wellBefore.unity
     guid: 6e39427a60470b047994ca621964be59
   - enabled: 1
-    path: Assets/Sequence1-4.unity
+    path: Assets/Scenes/Area1Scenes/Sequence1-4.unity
     guid: 2b34d9f59aa44294e94839dfe91cca22
   - enabled: 1
-    path: Assets/Well1.unity
+    path: Assets/Scenes/WellScenes/Well1.unity
     guid: 3684d1b21a2248d40a2c433f67ce9158
   - enabled: 0
-    path: Assets/Well2.unity
-    guid: 566128d8b67ca8f499c9e3e3a34eb32c
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/WellFinal.unity
+    path: Assets/Scenes/WellScenes/WellFinal.unity
     guid: ea477f52d7f432a48a920e8a374a805a
   - enabled: 1
-    path: Assets/WellSecondBack.unity
+    path: Assets/Scenes/WellScenes/WellSecondBack.unity
     guid: e65fc8576c14ba143979b240397712ef
   - enabled: 1
-    path: Assets/Well3Back.unity
+    path: Assets/Scenes/WellScenes/Well3Back.unity
     guid: 62bb3b75f419fd043bde4fc67a707aa5
   - enabled: 1
-    path: Assets/H_3_1_3.unity
+    path: Assets/Scenes/House3Scenes/H_3_1_3.unity
     guid: 60b94cd44d3b5924094de0ebb8465262
   - enabled: 1
-    path: Assets/H_3_1_4.unity
+    path: Assets/Scenes/House3Scenes/H_3_1_4.unity
     guid: 9311b375f2b54b745add829044680b99
   - enabled: 1
-    path: Assets/H_3_2_2.unity
+    path: Assets/Scenes/House3Scenes/H_3_2_2.unity
     guid: e4fdbb300d43c9749956d4dd8c63a4a7
   - enabled: 1
-    path: Assets/H_3_2_3.unity
+    path: Assets/Scenes/House3Scenes/H_3_2_3.unity
     guid: a6905ff3eb6b780469c20a2cfdfa60f6
   - enabled: 1
-    path: Assets/Town1WellAfter.unity
+    path: Assets/Scenes/Town1Scenes/Town1WellAfter.unity
     guid: bfd920570a0a92c4498402ae806a5850
   - enabled: 1
-    path: Assets/Town1WellAfterHouse.unity
+    path: Assets/Scenes/Town1Scenes/Town1WellAfterHouse.unity
     guid: 4fe437eca1f148f4c84ad5533bb69ff4
   - enabled: 1
-    path: Assets/Town1WellAfterHouseQ.unity
+    path: Assets/Scenes/Town1Scenes/Town1WellAfterHouseQ.unity
     guid: c1b390c2426a6634b955a237eab391f0
   - enabled: 1
-    path: Assets/Well1Back.unity
+    path: Assets/Scenes/WellScenes/Well1Back.unity
     guid: 70fdd2014c3c20d41ad0f8e15c3abaf7
   - enabled: 1
-    path: Assets/Sequence3Name.unity
+    path: Assets/MiscScenes/Sequence3Name.unity
     guid: f3c15bcae33d9b242a4fba6e4dff0c2e

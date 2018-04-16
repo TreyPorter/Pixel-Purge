@@ -14,7 +14,7 @@ public class Player_Move_Prot : MonoBehaviour {
     //GameObject Weapon;
     //Sprite curWeapon;
     int curWeapon;
-
+    public bool canMove;
     public static int playerDamage;
     public int setPlayerDamage;
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FadeOut : MonoBehaviour
 {
-   
+
     public TextAsset txtUsed;
     private bool changeSomething;
     //public GameObject sayHi;
@@ -54,7 +54,7 @@ public class FadeOut : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.name == "Player")
+        if (other.gameObject.tag == "Player")
         {
 
             if (needActivate)
@@ -71,7 +71,7 @@ public class FadeOut : MonoBehaviour
 
             if (destroyActive)
             {
-                
+
                // SceneManager.LoadScene(lvl);
                 Destroy(gameObject);
             }

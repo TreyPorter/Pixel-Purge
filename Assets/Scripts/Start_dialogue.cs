@@ -23,14 +23,14 @@ public class Start_dialogue : MonoBehaviour {
         //KeyLock = FindObjectOfType<Sequence1to1House>();
         txtBox = FindObjectOfType<Textbox_editor>();
         //sayHi.SetActive(false);
-        
+
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 		if(waitPress && Input.GetKeyDown(KeyCode.E))
         {
-            
+
             txtBox.ReloadS(txtUsed);
             txtBox.curLine = startLine;
             txtBox.endLine = endLine;
@@ -38,7 +38,7 @@ public class Start_dialogue : MonoBehaviour {
 
             if (destroyActive)
             {
-                
+
                 Destroy(gameObject);
             }
             //Key = true;
