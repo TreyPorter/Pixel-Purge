@@ -38,10 +38,10 @@ GameObject:
   - component: {fileID: 212600470530617320}
   - component: {fileID: 61998118822599576}
   - component: {fileID: 50721105580929492}
-  - component: {fileID: 114883579996767754}
   - component: {fileID: 114657639801221952}
   - component: {fileID: 114947208351765936}
   - component: {fileID: 95561240706440840}
+  - component: {fileID: 114467052185014582}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -349,7 +349,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1122790020587038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.84, y: -0.7, z: 0}
+  m_LocalPosition: {x: -6.16, y: -0.5577569, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 4033768756520616}
@@ -615,6 +615,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitActive: 0
+--- !u!114 &114467052185014582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122790020587038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f3bd51178c2a847ba20904ab407cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 10
+  playerJumpPower: 1250
+  isGrounded: 0
+  setPlayerDamage: 0
+  sword: {fileID: 0}
+  axe: {fileID: 0}
+  lance: {fileID: 0}
+  cur: {fileID: 0}
+  knockbackLength: 0
+  firePoint: {fileID: 0}
+  projectile: {fileID: 0}
 --- !u!114 &114650860594176084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -652,29 +674,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitActive: 0
---- !u!114 &114883579996767754
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1122790020587038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e14689933a44d0489f7ab3551131b8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 10
-  playerJumpPower: 1250
-  isGrounded: 0
-  setPlayerDamage: 10
-  sword: {fileID: 21300000, guid: 48c76ba23ba6cad4e96bea4baa955008, type: 3}
-  axe: {fileID: 21300000, guid: 498beac160e9f4442ba50f6db510bedc, type: 3}
-  lance: {fileID: 0}
-  cur: {fileID: 0}
-  knockback: 10
-  knockbackLength: 0.2
-  firePoint: {fileID: 4617601286586180}
-  projectile: {fileID: 0}
 --- !u!114 &114947208351765936
 MonoBehaviour:
   m_ObjectHideFlags: 1
