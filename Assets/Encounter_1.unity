@@ -2135,7 +2135,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &313820599
 MonoBehaviour:
@@ -2818,11 +2818,6 @@ Prefab:
     - target: {fileID: 1994554974768288, guid: 7719e4b0cd2db6f40b58596d21a2aed4, type: 2}
       propertyPath: m_Name
       value: '[ENEMY] Crawler V2 (2)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114895521511530028, guid: 7719e4b0cd2db6f40b58596d21a2aed4,
-        type: 2}
-      propertyPath: EnemyHealth
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7719e4b0cd2db6f40b58596d21a2aed4, type: 2}
@@ -3586,7 +3581,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4601553409418040, guid: 2e456d2fd7c685740ac5eab2bf46d6f9, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e456d2fd7c685740ac5eab2bf46d6f9, type: 2}
@@ -3820,7 +3815,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1830660390881074, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
       propertyPath: m_IsActive
@@ -3919,7 +3914,7 @@ Prefab:
     - target: {fileID: 224716491735884930, guid: 12dbfcdb67df0c74482edd297a536b57,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 224716491735884930, guid: 12dbfcdb67df0c74482edd297a536b57,
         type: 2}
@@ -4099,7 +4094,7 @@ Transform:
   - {fileID: 808255436}
   - {fileID: 1937613933}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &657135019
 Prefab:
@@ -5172,7 +5167,7 @@ Transform:
   - {fileID: 1586851038}
   - {fileID: 1294861524}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &894783509 stripped
 Transform:
@@ -5696,11 +5691,6 @@ Prefab:
     - target: {fileID: 1994554974768288, guid: 7719e4b0cd2db6f40b58596d21a2aed4, type: 2}
       propertyPath: m_Name
       value: '[ENEMY] Crawler V2 (1)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114895521511530028, guid: 7719e4b0cd2db6f40b58596d21a2aed4,
-        type: 2}
-      propertyPath: EnemyHealth
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7719e4b0cd2db6f40b58596d21a2aed4, type: 2}
@@ -6400,7 +6390,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1119524662
 Prefab:
@@ -7461,7 +7451,7 @@ Transform:
   - {fileID: 1145001474}
   - {fileID: 894783509}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1449391673
 GameObject:
@@ -8025,6 +8015,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4549421604755374, guid: c227f57aa7d30be499fecc57013a36de,
     type: 2}
   m_PrefabInternal: {fileID: 220619811}
+--- !u!1001 &1598463858
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4317531622924076, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 17.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317531622924076, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317531622924076, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317531622924076, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317531622924076, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317531622924076, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317531622924076, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317531622924076, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 047f896fe5245fd4d93d051cc44d2a1d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1602947265 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4964171881709382, guid: a48e9e057fd09dc43bd6d4d9323520ea,
@@ -8749,11 +8781,6 @@ Prefab:
     - target: {fileID: 4139792059194858, guid: 87bb0ca422f4a02408a77da6ae7680eb, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114743620498545040, guid: 87bb0ca422f4a02408a77da6ae7680eb,
-        type: 2}
-      propertyPath: EnemyHealth
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87bb0ca422f4a02408a77da6ae7680eb, type: 2}
@@ -10317,8 +10344,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114875604941225278, guid: 7719e4b0cd2db6f40b58596d21a2aed4,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
@@ -11721,11 +11747,6 @@ Prefab:
     - target: {fileID: 4421679019214474, guid: 7719e4b0cd2db6f40b58596d21a2aed4, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114895521511530028, guid: 7719e4b0cd2db6f40b58596d21a2aed4,
-        type: 2}
-      propertyPath: EnemyHealth
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7719e4b0cd2db6f40b58596d21a2aed4, type: 2}

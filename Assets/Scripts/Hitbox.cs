@@ -22,8 +22,17 @@ public class Hitbox : MonoBehaviour {
                 //Destroy(collision.gameObject)  Destroys objects it touches
                 GameObject enemy = collision.gameObject;
                 Enemy_Health healthScript = enemy.GetComponent<Enemy_Health>();
-                healthScript.reduceHealth(Player_Move_Prot.playerDamage);
-                enemy.GetComponent<Enemy_Move>().knockbackEnemy();
+                if (healthScript.reduceHealth(Player_Move_Prot.playerDamage))
+                {
+                    if (enemy.GetComponent<Enemy_Move>())
+                    {
+                        enemy.GetComponent<Enemy_Move>().knockbackEnemy();
+                    }
+                    if (enemy.GetComponent<EnemyAI>())
+                    {
+                        enemy.GetComponent<EnemyAI>().knockbackEnemy();
+                    }
+                }
                 Debug.Log("Enemy hit");
             }
         }
