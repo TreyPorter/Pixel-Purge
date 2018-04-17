@@ -14,16 +14,20 @@ public class Player_Move_Prot : MonoBehaviour {
     //GameObject Weapon;
     //Sprite curWeapon;
     int curWeapon;
-    public bool canMove;
+
+    //Stats
     public static int playerDamage;
     public int setPlayerDamage;
+    private int weaponDamage;
+    private double weaponKnockbackReceived;
+    public double weaponKnockbackDealt;
 
     public GameObject sword;
     public GameObject axe;
     public GameObject lance;
     public GameObject cur;
 
-    public float knockback;
+    private float knockback;
     public float knockbackLength;
     private float knockbackCount;
     private bool knockFromRight;
@@ -57,7 +61,7 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("AxeActive", false);
         armAnim.SetBool("LanceActive", false);
 
-        playerDamage = setPlayerDamage;
+        playerDamage = setPlayerDamage + weaponDamage;
         knockbackCount = 0;
     }
 
@@ -97,7 +101,9 @@ public class Player_Move_Prot : MonoBehaviour {
             FlipPlayer ();
         }
         // PHYSICS
-        if(knockbackCount <= 0) {
+        weaponMod();
+        knockback = 5 * (float)weaponKnockbackReceived;
+        if (knockbackCount <= 0) {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
         }
         else {
@@ -155,33 +161,20 @@ public class Player_Move_Prot : MonoBehaviour {
         }
 
         RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
-        Vector3 rightCast = transform.position + new Vector3(.5f,0f,0f);
-        Vector3 leftCast = transform.position + new Vector3(-.5f,0f,0f);
-        RaycastHit2D rayDown_R = Physics2D.Raycast(rightCast, Vector2.down);
-        RaycastHit2D rayDown_L = Physics2D.Raycast(leftCast, Vector2.down);
-        if(rayDown_R.collider != null) {
-            Debug.Log("Right "+rayDown_R.collider.gameObject.name);
-        }
-        if(rayDown_L.collider != null) {
-            Debug.Log("Left "+rayDown_L.collider.gameObject.name);
-        }
         //RaycastHit2D rayRight = Physics2D.Raycast(transform.position, Vector2.right);
         //RaycastHit2D rayLeft = Physics2D.Raycast(transform.position, Vector2.left);
-        if ((rayDown != null || rayDown_R != null || rayDown_L != null) && (rayDown.collider != null || rayDown_R.collider != null || rayDown_L.collider != null) && col.collider.tag != "enemy")
+        if (rayDown != null && rayDown.collider != null && col.collider.tag != "enemy")
         {
             isGrounded = true;
             anim.SetTrigger("Land");
             anim.SetBool("IsGrounded", isGrounded);
         }
-        if(col.collider.tag == "enemy" || col.collider.tag == "boss_weapon" || col.collider.tag == "boss" ) {
-            if(col.collider.tag == "boss" || col.collider.tag == "boss_weapon") {
-                Player_Health.health -= 5;
-            }
+        if(col.collider.tag == "enemy") {
             knockbackCount = knockbackLength;
             if (rayDown != null && rayDown.collider != null)
             {
                 //Debug.Log("Squished enemy");
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * (300));
                 Debug.Log("Player pushed up");
                 /*rayDown.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
                 rayDown.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
@@ -222,6 +215,31 @@ public class Player_Move_Prot : MonoBehaviour {
         }
         */
 
+    }
+
+    void weaponMod()
+    {
+        if (curWeapon == 1) // sword: fast, light
+        {
+            weaponDamage = 3;   //3
+            playerDamage = setPlayerDamage + weaponDamage;
+            weaponKnockbackReceived = 1.5;
+            weaponKnockbackDealt = 2;
+        }
+        else if(curWeapon == 2) // axe: slow, strong
+        {
+            weaponDamage = 5;   //5
+            playerDamage = setPlayerDamage + weaponDamage;
+            weaponKnockbackReceived = 1;
+            weaponKnockbackDealt = 6;
+        }
+        else    // lance: large, weak
+        {
+            weaponDamage = 1;   //1
+            playerDamage = setPlayerDamage + weaponDamage;
+            weaponKnockbackReceived = 2;
+            weaponKnockbackDealt = -1;
+        }
     }
 
     void Animate()

@@ -10,9 +10,8 @@ public class EnemyAI : MonoBehaviour {
 
 	/* Variables/Objects */
 		//Which object to chase?
-		private GameObject Player;
-		private Transform target;
-
+		public Transform target;
+		
 		//How many times each second we will update our path
 		public float updateRate = 2f;
 
@@ -32,15 +31,15 @@ public class EnemyAI : MonoBehaviour {
 
 		//Max distance from AI to a waypoint for it to continue to the next waypoint (lol)
 		public float nextWaypointDistance = 3;
-
+		
 		//The waypoint we are currently moving towards
 		private int currentWaypoint = 0;
 
-		public int enemyDamage;
-
-	void Start(){
-		Player = GameObject.Find("Player");
-        target = Player.transform;
+        public float knockback;
+        public float knockbackLength;
+        private float knockbackCount;
+        private bool knockFromRight;
+    void Start(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
 
@@ -48,9 +47,10 @@ public class EnemyAI : MonoBehaviour {
 			Debug.LogError ("No Player found? PANIC!");
 			return;
 		}
+        knockbackCount = 0;
 
-		//Start a new path to the target position, return the result to the OnPathComplete function
-		seeker.StartPath (transform.position, target.position, OnPathComplete);
+        //Start a new path to the target position, return the result to the OnPathComplete function
+        seeker.StartPath (transform.position, target.position, OnPathComplete);
 
 		//We want to update the path, but not every frame -> too much overhead
 		StartCoroutine (UpdatePath ());
@@ -63,7 +63,7 @@ public class EnemyAI : MonoBehaviour {
 		}
 		//Start a new path to the target position, return the result to the OnPathComplete function
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
-
+			
 		yield return new WaitForSeconds (1f / updateRate);
 		StartCoroutine (UpdatePath ());
 	}
@@ -75,20 +75,20 @@ public class EnemyAI : MonoBehaviour {
 			currentWaypoint = 0;
 		}
 	}
-	private void OnCollisionEnter2D(Collision2D trig)
-	{
-		if (trig.gameObject.tag == "Player")
-		{
-			Debug.Log("Enemy Attacking");
-			attackPlayer();
-		}
-	}
-	private void attackPlayer() {
-        Player_Health.reduceHealth(enemyDamage);
-        Debug.Log("Player Health: " + Player_Health.health);
+    public void knockbackEnemy()
+    {
+        knockbackCount = knockbackLength;
+        if (transform.position.x < target.position.x)
+        {
+            knockFromRight = true;
+        }
+        else
+        {
+            knockFromRight = false;
+        }
     }
-	/* Fixed update rate, great for physics calculations, substitute for void Update() */
-	void FixedUpdate(){
+    /* Fixed update rate, great for physics calculations, substitute for void Update() */
+    void FixedUpdate(){
 		if (target == null) {
 			//TODO: Insert a player search here
 			return;
@@ -114,9 +114,24 @@ public class EnemyAI : MonoBehaviour {
 		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized; //this gets the direction somehow
 		dir *= speed * Time.fixedDeltaTime;
 
-		//Move the AI
-		rb.AddForce(dir, fMode);
-
+        //Move the AI
+        if (knockbackCount <= 0)
+        {
+            rb.AddForce(dir, fMode);
+        }
+        else
+        {
+            knockbackEnemy();
+            if (knockFromRight)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+            }
+            if (!knockFromRight)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
 		//check if close enough to the next waypoint, if so, proceed next waypoint
 		float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]); //check the 2nd parameter for this one
 		if (dist < nextWaypointDistance) {

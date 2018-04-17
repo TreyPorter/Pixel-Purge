@@ -13,8 +13,14 @@ public class Enemy_Health : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    public void reduceHealth(int damage) {
+    //Returns false if the enemy dies on hit
+    public bool reduceHealth(int damage) {
         EnemyHealth = EnemyHealth-damage;
         //Debug.Log("Enemy Health: " + EnemyHealth);
+        if(EnemyHealth>0)
+        {
+            return true;
+        }
+        return false;
     }
 }
