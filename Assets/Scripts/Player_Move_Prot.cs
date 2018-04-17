@@ -14,7 +14,8 @@ public class Player_Move_Prot : MonoBehaviour {
     //GameObject Weapon;
     //Sprite curWeapon;
     public int curWeapon;
-    //float dashCD;
+    float dashCD;
+    public float dashPOW;
     bool disable; 
 
     public static int playerDamage;
@@ -58,7 +59,7 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("SwordActive", true);
         armAnim.SetBool("AxeActive", false);
         armAnim.SetBool("LanceActive", false);
-        //dashCD = 0;
+        dashCD = 1;
         disable = false;
 
 
@@ -70,6 +71,9 @@ public class Player_Move_Prot : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        if(dashCD > 1) { dashCD -= 1; }
+        if(dashCD < 1) { dashCD = 1; }
+        if (Input.GetKeyDown("c") && dashCD == 1 && isGrounded == false) { dashCD = 10; }
         Attack();
         PlayerMove();
         //PlayerRaycast();
@@ -114,7 +118,8 @@ public class Player_Move_Prot : MonoBehaviour {
     
         }*/
         if(knockbackCount <= 0 && disable == false) {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed * dashCD, gameObject.GetComponent<Rigidbody2D>().velocity.y + (dashCD - 1) * Input.GetAxis("Vertical"));
+            //if(dashCD > 1) { gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, Input.GetAxis("Vertical") * dashCD * playerJumpPower); }
         }
         else {
             if(knockFromRight) {
@@ -129,7 +134,7 @@ public class Player_Move_Prot : MonoBehaviour {
     void Jump()
     {
         // JUMPING CODE
-        GetComponent<Rigidbody2D>().AddForce (Vector2.up * playerJumpPower);
+        GetComponent<Rigidbody2D>().AddForce (Vector2.up * playerJumpPower * dashCD);
         isGrounded = false;
         anim.SetTrigger("Jump");
         anim.SetBool("IsGrounded", isGrounded);
