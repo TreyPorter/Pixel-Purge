@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemy_Move : MonoBehaviour {
 
-    public GameObject Player;
+    private GameObject Player;
     public int EnemySpeed;
     public int XMoveDirection;
     private BoxCollider2D boxCollider;
@@ -27,17 +27,18 @@ public class Enemy_Move : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-       target = Player.transform;
-       //Get a component reference to this object's BoxCollider2D
-       boxCollider = GetComponent <BoxCollider2D> ();
-       //Get a component reference to this object's Rigidbody2D
-       rb2D = GetComponent <Rigidbody2D> ();
-       isGrounded = false;
-       if(jumper) {
-           StartCoroutine(Jump());
-       }
-       knockbackCount = 0;
-    }
+        Player = GameObject.Find("Player");
+        target = Player.transform;
+        //Get a component reference to this object's BoxCollider2D
+        boxCollider = GetComponent <BoxCollider2D> ();
+        //Get a component reference to this object's Rigidbody2D
+        rb2D = GetComponent <Rigidbody2D> ();
+        isGrounded = false;
+        if(jumper) {
+            StartCoroutine(Jump());
+        }
+        knockbackCount = 0;
+        }
 
 
     // Update is called once per frame

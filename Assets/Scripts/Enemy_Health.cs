@@ -15,5 +15,6 @@ public class Enemy_Health : MonoBehaviour {
     }
     public void reduceHealth(int damage) {
         EnemyHealth = EnemyHealth-damage;
+        //Debug.Log("Enemy Health: " + EnemyHealth);
     }
 }
