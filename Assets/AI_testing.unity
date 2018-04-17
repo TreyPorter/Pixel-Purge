@@ -4146,11 +4146,6 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 694006024}
-    - target: {fileID: 114875604941225278, guid: 6b7249fc215fada4ea9e913b4c252cab,
-        type: 2}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 694006016}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b7249fc215fada4ea9e913b4c252cab, type: 2}
   m_IsPrefabParent: 0
@@ -5879,11 +5874,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 114551634927668666, guid: 6efa3844039c4d640bc7953c7683a2e6,
-        type: 2}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 694006016}
     - target: {fileID: 114177057382401072, guid: 6efa3844039c4d640bc7953c7683a2e6,
         type: 2}
       propertyPath: target
@@ -7483,6 +7473,7 @@ MonoBehaviour:
   playerJumpPower: 1250
   isGrounded: 0
   setPlayerDamage: 0
+  weaponKnockbackDealt: 0
   sword: {fileID: 0}
   axe: {fileID: 0}
   lance: {fileID: 0}
@@ -7826,7 +7817,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4501510842294578, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.4
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 4501510842294578, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7874,7 +7865,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1673735515819178, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1583619257857740, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
       propertyPath: m_IsActive
@@ -7902,7 +7893,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1270557893774482, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 61032755586015010, guid: 8dd7a604050b2004ab063ef10bc76850,
         type: 2}
@@ -7923,6 +7914,11 @@ Prefab:
         type: 2}
       propertyPath: m_Size.x
       value: 0.1779661
+      objectReference: {fileID: 0}
+    - target: {fileID: 114467052185014582, guid: 8dd7a604050b2004ab063ef10bc76850,
+        type: 2}
+      propertyPath: setPlayerDamage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
@@ -8597,6 +8593,10 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 694006024}
+    - target: {fileID: 1504062869452558, guid: 6efa3844039c4d640bc7953c7683a2e6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6efa3844039c4d640bc7953c7683a2e6, type: 2}
   m_IsPrefabParent: 0

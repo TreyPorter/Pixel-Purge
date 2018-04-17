@@ -42,15 +42,16 @@ public class Enemy_Move : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if(knockbackCount <= 0) {
+        double playkb = FindObjectOfType<Player_Move_Prot>().weaponKnockbackDealt;
+        if (knockbackCount <= 0) {
             MoveEnemy<MonoBehaviour>();
         }
         else {
             if(knockFromRight) {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback - (float)playkb, knockback + ((float)playkb / 2));
             }
             if(!knockFromRight) {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback + (float)playkb, knockback + ((float)playkb / 2));
             }
             knockbackCount -= Time.deltaTime;
         }
@@ -170,7 +171,7 @@ public class Enemy_Move : MonoBehaviour {
             attackPlayer();
         }
         RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
-        if (rayDown != null && rayDown.collider != null && trig.collider.tag != "Player")
+        if (rayDown != null && rayDown.collider != null && trig.collider.tag != "Player" && trig.collider.tag != "enemy")
         {
             isGrounded = true;
             //anim.SetTrigger("Land");

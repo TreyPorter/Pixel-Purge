@@ -121,6 +121,7 @@ public class EnemyAI : MonoBehaviour {
         }
         else
         {
+            knockbackEnemy();
             if (knockFromRight)
             {
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);

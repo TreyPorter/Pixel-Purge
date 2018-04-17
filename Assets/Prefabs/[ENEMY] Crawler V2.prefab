@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212354203390039442}
   - component: {fileID: 61815540470518202}
   - component: {fileID: 50490666473519446}
-  - component: {fileID: 114875604941225278}
   - component: {fileID: 95820891538434048}
   - component: {fileID: 114991349410717360}
   - component: {fileID: 114543202954769230}
@@ -135,28 +134,6 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask: -1
---- !u!114 &114875604941225278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1994554974768288}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d32e41400122c5459359f77cd6dac29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  EnemySpeed: 4
-  XMoveDirection: 1
-  blockingLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyDamage: 1
-  jumper: 0
-  jumpPower: 0
-  knockback: 0
-  knockbackLength: 0
 --- !u!114 &114895521511530028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +163,8 @@ MonoBehaviour:
   fMode: 0
   pathIsEnded: 0
   nextWaypointDistance: 3
+  knockback: 10
+  knockbackLength: 0.2
 --- !u!212 &212354203390039442
 SpriteRenderer:
   m_ObjectHideFlags: 1

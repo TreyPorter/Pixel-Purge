@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212900485326920900}
   - component: {fileID: 61689331635302864}
   - component: {fileID: 50018341779279354}
-  - component: {fileID: 114551634927668666}
   - component: {fileID: 95688471755349254}
   - component: {fileID: 114985811595091152}
   - component: {fileID: 114693091621870016}
@@ -126,28 +125,8 @@ MonoBehaviour:
   fMode: 0
   pathIsEnded: 0
   nextWaypointDistance: 3
---- !u!114 &114551634927668666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504062869452558}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d32e41400122c5459359f77cd6dac29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  EnemySpeed: 4
-  XMoveDirection: 1
-  blockingLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyDamage: 1
-  jumper: 0
-  jumpPower: 0
-  knockback: 0
-  knockbackLength: 0
+  knockback: 10
+  knockbackLength: 0.2
 --- !u!114 &114693091621870016
 MonoBehaviour:
   m_ObjectHideFlags: 1

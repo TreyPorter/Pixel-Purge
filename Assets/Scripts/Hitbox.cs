@@ -16,19 +16,23 @@ public class Hitbox : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("hitting enemy");
         if (collision != null && hitActive == true)
         {
             if (collision.tag == "enemy") {
                 //Destroy(collision.gameObject)  Destroys objects it touches
                 GameObject enemy = collision.gameObject;
                 Enemy_Health healthScript = enemy.GetComponent<Enemy_Health>();
-                healthScript.reduceHealth(Player_Move_Prot.playerDamage);
-                if (enemy.GetComponent<Enemy_Move>()) {
-                    enemy.GetComponent<Enemy_Move>().knockbackEnemy();
-                }
-                if (enemy.GetComponent<EnemyAI>())
+                if (healthScript.reduceHealth(Player_Move_Prot.playerDamage))
                 {
-                    enemy.GetComponent<EnemyAI>().knockbackEnemy();
+                    if (enemy.GetComponent<Enemy_Move>())
+                    {
+                        enemy.GetComponent<Enemy_Move>().knockbackEnemy();
+                    }
+                    if (enemy.GetComponent<EnemyAI>())
+                    {
+                        enemy.GetComponent<EnemyAI>().knockbackEnemy();
+                    }
                 }
                 Debug.Log("Enemy hit");
             }

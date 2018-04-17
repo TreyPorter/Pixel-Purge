@@ -20,7 +20,7 @@ public class Player_Move_Prot : MonoBehaviour {
     public int setPlayerDamage;
     private int weaponDamage;
     private double weaponKnockbackReceived;
-    private double weaponKnockbackDealt;
+    public double weaponKnockbackDealt;
 
     public GameObject sword;
     public GameObject axe;
@@ -61,7 +61,7 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("AxeActive", false);
         armAnim.SetBool("LanceActive", false);
 
-        playerDamage = setPlayerDamage;
+        playerDamage = setPlayerDamage + weaponDamage;
         knockbackCount = 0;
     }
 
@@ -221,18 +221,24 @@ public class Player_Move_Prot : MonoBehaviour {
     {
         if (curWeapon == 1) // sword: fast, light
         {
-            weaponDamage = 3;
+            weaponDamage = 3;   //3
+            playerDamage = setPlayerDamage + weaponDamage;
             weaponKnockbackReceived = 1.5;
+            weaponKnockbackDealt = 2;
         }
         else if(curWeapon == 2) // axe: slow, strong
         {
-            weaponDamage = 5;
+            weaponDamage = 5;   //5
+            playerDamage = setPlayerDamage + weaponDamage;
             weaponKnockbackReceived = 1;
+            weaponKnockbackDealt = 6;
         }
         else    // lance: large, weak
         {
-            weaponDamage = 1;
+            weaponDamage = 1;   //1
+            playerDamage = setPlayerDamage + weaponDamage;
             weaponKnockbackReceived = 2;
+            weaponKnockbackDealt = -1;
         }
     }
 
