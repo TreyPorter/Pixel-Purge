@@ -53,7 +53,7 @@ public class OpenAfterTalk : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.name == "Player")
         {
 
             if (needActivate)
@@ -78,7 +78,7 @@ public class OpenAfterTalk : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // sayHi.SetActive(false);
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.name == "Player")
         {
             waitPress = false;
         }

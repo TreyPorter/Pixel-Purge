@@ -49,7 +49,7 @@ public class Start_dialogue : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if(other.name == "Player")
+        if(other.gameObject.name == "Player")
         {
 
             if(needActivate)
@@ -74,7 +74,7 @@ public class Start_dialogue : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
        // sayHi.SetActive(false);
-        if (collision.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             waitPress = false;
         }

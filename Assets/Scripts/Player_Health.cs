@@ -9,7 +9,7 @@ public class Player_Health : MonoBehaviour {
 
     public static float health;
     public float maxhealth;
-    
+
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +35,7 @@ public class Player_Health : MonoBehaviour {
             StartCoroutine("Die");
         }
         */
-        
+
         //Debug.Log("Orig Size: " + origSize + " percent: " + health / maxhealth);
     }
     public static void reduceHealth(int damage) {
@@ -55,6 +55,7 @@ public class Player_Health : MonoBehaviour {
 
     void Die ()
     {
+        health = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // yield return null;
         /*

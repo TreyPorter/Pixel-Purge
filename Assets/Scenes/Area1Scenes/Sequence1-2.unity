@@ -5790,7 +5790,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &351244703
 Transform:
@@ -5996,7 +5996,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1001 &356898562
 Prefab:
@@ -8980,7 +8980,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1 &503098426
 GameObject:
@@ -9539,7 +9539,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1 &533718883
 GameObject:
@@ -10939,7 +10939,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &642905299 stripped
 Transform:
@@ -11640,7 +11640,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &684909468 stripped
 Transform:
@@ -12840,7 +12840,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1 &741043008
 GameObject:
@@ -19924,7 +19924,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1 &1150595679
 GameObject:
@@ -22321,12 +22321,12 @@ Prefab:
     - target: {fileID: 61053208400040772, guid: 3eb759c82048aad4994274d9c0778d32,
         type: 2}
       propertyPath: m_Offset.x
-      value: 12.957024
+      value: 10.745766
       objectReference: {fileID: 0}
     - target: {fileID: 61053208400040772, guid: 3eb759c82048aad4994274d9c0778d32,
         type: 2}
       propertyPath: m_Size.x
-      value: 34.527817
+      value: 38.950333
       objectReference: {fileID: 0}
     - target: {fileID: 4294541374516900, guid: 3eb759c82048aad4994274d9c0778d32, type: 2}
       propertyPath: m_LocalScale.x
@@ -23683,7 +23683,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1383646626 stripped
 Transform:
@@ -26432,7 +26432,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 12.957024, y: -0.5928192}
+  m_Offset: {x: 10.745766, y: -0.5928192}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -26443,7 +26443,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 34.527817, y: 5.624362}
+  m_Size: {x: 38.950333, y: 5.624362}
   m_EdgeRadius: 0
 --- !u!212 &1500647825
 SpriteRenderer:
@@ -33596,6 +33596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1856965426}
   - component: {fileID: 1856965427}
+  - component: {fileID: 1856965428}
   m_Layer: 0
   m_Name: platform-block-01 (61)
   m_TagString: Untagged
@@ -33660,6 +33661,31 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!61 &1856965428
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1856965425}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1056182, y: 4.134139}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.05, y: 5.05}
+    newSize: {x: 5.05, y: 5.05}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.2612367, y: 16.010273}
+  m_EdgeRadius: 0
 --- !u!1001 &1865843046
 Prefab:
   m_ObjectHideFlags: 0
@@ -35439,7 +35465,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1001 &1969291434
 Prefab:
@@ -36383,7 +36409,7 @@ SpriteRenderer:
   m_Size: {x: 1.31, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1 &2003900753
 GameObject:
