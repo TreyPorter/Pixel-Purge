@@ -13,10 +13,12 @@ public class Player_Move_Prot : MonoBehaviour {
     Animator armAnim;
     //GameObject Weapon;
     //Sprite curWeapon;
-    int curWeapon;
+    public int curWeapon;
     public bool canMove;
     public static int playerDamage;
     public int setPlayerDamage;
+    float dashCD;
+    public float dashPOW;
 
     public GameObject sword;
     public GameObject axe;
@@ -56,6 +58,7 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("SwordActive", true);
         armAnim.SetBool("AxeActive", false);
         armAnim.SetBool("LanceActive", false);
+        dashCD = 1;
 
         playerDamage = setPlayerDamage;
         knockbackCount = 0;
@@ -63,12 +66,15 @@ public class Player_Move_Prot : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         Attack();
         PlayerMove();
         //PlayerRaycast();
         Animate();
 		Ranged ();
+        if (dashCD > 1) { dashCD -= 1; }
+        if (dashCD < 1) { dashCD = 1; }
+        if (Input.GetKeyDown("c") && dashCD == 1 && isGrounded == false) { dashCD = dashPOW; }
 
     }
 
@@ -98,7 +104,7 @@ public class Player_Move_Prot : MonoBehaviour {
         }
         // PHYSICS
         if(knockbackCount <= 0) {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed * dashCD, gameObject.GetComponent<Rigidbody2D>().velocity.y + (dashCD - 1) * Input.GetAxis("Vertical"));
         }
         else {
             if(knockFromRight) {
