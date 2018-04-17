@@ -29798,21 +29798,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114947208351765936, guid: 8dd7a604050b2004ab063ef10bc76850,
-        type: 2}
-      propertyPath: timeLeftUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114947208351765936, guid: 8dd7a604050b2004ab063ef10bc76850,
-        type: 2}
-      propertyPath: playerScoreUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114883579996767754, guid: 8dd7a604050b2004ab063ef10bc76850,
-        type: 2}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
   m_IsPrefabParent: 0
