@@ -35,7 +35,11 @@ public class EnemyAI : MonoBehaviour {
 		//The waypoint we are currently moving towards
 		private int currentWaypoint = 0;
 
-	void Start(){
+        public float knockback;
+        public float knockbackLength;
+        private float knockbackCount;
+        private bool knockFromRight;
+    void Start(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
 
@@ -43,9 +47,10 @@ public class EnemyAI : MonoBehaviour {
 			Debug.LogError ("No Player found? PANIC!");
 			return;
 		}
+        knockbackCount = 0;
 
-		//Start a new path to the target position, return the result to the OnPathComplete function
-		seeker.StartPath (transform.position, target.position, OnPathComplete);
+        //Start a new path to the target position, return the result to the OnPathComplete function
+        seeker.StartPath (transform.position, target.position, OnPathComplete);
 
 		//We want to update the path, but not every frame -> too much overhead
 		StartCoroutine (UpdatePath ());
@@ -70,9 +75,20 @@ public class EnemyAI : MonoBehaviour {
 			currentWaypoint = 0;
 		}
 	}
-
-	/* Fixed update rate, great for physics calculations, substitute for void Update() */
-	void FixedUpdate(){
+    public void knockbackEnemy()
+    {
+        knockbackCount = knockbackLength;
+        if (transform.position.x < target.position.x)
+        {
+            knockFromRight = true;
+        }
+        else
+        {
+            knockFromRight = false;
+        }
+    }
+    /* Fixed update rate, great for physics calculations, substitute for void Update() */
+    void FixedUpdate(){
 		if (target == null) {
 			//TODO: Insert a player search here
 			return;
@@ -98,9 +114,23 @@ public class EnemyAI : MonoBehaviour {
 		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized; //this gets the direction somehow
 		dir *= speed * Time.fixedDeltaTime;
 
-		//Move the AI
-		rb.AddForce(dir, fMode);
-
+        //Move the AI
+        if (knockbackCount <= 0)
+        {
+            rb.AddForce(dir, fMode);
+        }
+        else
+        {
+            if (knockFromRight)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+            }
+            if (!knockFromRight)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
 		//check if close enough to the next waypoint, if so, proceed next waypoint
 		float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]); //check the 2nd parameter for this one
 		if (dist < nextWaypointDistance) {

@@ -19,7 +19,8 @@ public class Player_Move_Prot : MonoBehaviour {
     public static int playerDamage;
     public int setPlayerDamage;
     private int weaponDamage;
-    private double weaponKnockback;
+    private double weaponKnockbackReceived;
+    private double weaponKnockbackDealt;
 
     public GameObject sword;
     public GameObject axe;
@@ -101,7 +102,7 @@ public class Player_Move_Prot : MonoBehaviour {
         }
         // PHYSICS
         weaponMod();
-        knockback = 5 * (float)weaponKnockback;
+        knockback = 5 * (float)weaponKnockbackReceived;
         if (knockbackCount <= 0) {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
         }
@@ -221,17 +222,17 @@ public class Player_Move_Prot : MonoBehaviour {
         if (curWeapon == 1) // sword: fast, light
         {
             weaponDamage = 3;
-            weaponKnockback = 1.5;
+            weaponKnockbackReceived = 1.5;
         }
         else if(curWeapon == 2) // axe: slow, strong
         {
             weaponDamage = 5;
-            weaponKnockback = 1;
+            weaponKnockbackReceived = 1;
         }
         else    // lance: large, weak
         {
             weaponDamage = 1;
-            weaponKnockback = 2;
+            weaponKnockbackReceived = 2;
         }
     }
 
