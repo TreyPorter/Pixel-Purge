@@ -341,11 +341,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4560812854530628, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -106.18
+      value: -97.12
       objectReference: {fileID: 0}
     - target: {fileID: 4560812854530628, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.0784
+      value: 4.96
       objectReference: {fileID: 0}
     - target: {fileID: 4560812854530628, guid: 8dd7a604050b2004ab063ef10bc76850, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4337,7 +4337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Character
+  m_Text: Morgan
 --- !u!222 &849439493
 CanvasRenderer:
   m_ObjectHideFlags: 0

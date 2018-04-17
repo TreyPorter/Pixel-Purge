@@ -7,7 +7,7 @@ public class Win : MonoBehaviour {
     // Update is called once per frame
     public string message;
     Enemy_Health script;
-    public int BossHealth;
+    private int BossHealth;
     public GameObject TextUI;
     void Start() {
         script = GameObject.Find("BOSS SKELE KNIGHT").GetComponent<Enemy_Health>();

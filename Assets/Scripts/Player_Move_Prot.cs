@@ -159,12 +159,12 @@ public class Player_Move_Prot : MonoBehaviour {
         Vector3 leftCast = transform.position + new Vector3(-.5f,0f,0f);
         RaycastHit2D rayDown_R = Physics2D.Raycast(rightCast, Vector2.down);
         RaycastHit2D rayDown_L = Physics2D.Raycast(leftCast, Vector2.down);
-        if(rayDown_R.collider != null) {
+        /*if(rayDown_R.collider != null) {
             Debug.Log("Right "+rayDown_R.collider.gameObject.name);
         }
         if(rayDown_L.collider != null) {
             Debug.Log("Left "+rayDown_L.collider.gameObject.name);
-        }
+        }*/
         //RaycastHit2D rayRight = Physics2D.Raycast(transform.position, Vector2.right);
         //RaycastHit2D rayLeft = Physics2D.Raycast(transform.position, Vector2.left);
         if ((rayDown != null || rayDown_R != null || rayDown_L != null) && (rayDown.collider != null || rayDown_R.collider != null || rayDown_L.collider != null) && col.collider.tag != "enemy")
