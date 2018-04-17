@@ -32,6 +32,10 @@ public class Hitbox : MonoBehaviour {
                     {
                         enemy.GetComponent<EnemyAI>().knockbackEnemy();
                     }
+                    if (enemy.GetComponent<Boss_Move>())
+                    {
+                        enemy.GetComponent<Boss_Move>().knockbackEnemy();
+                    }
                 }
                 Debug.Log("Enemy hit");
             }

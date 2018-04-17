@@ -23862,6 +23862,16 @@ Prefab:
       propertyPath: m_Name
       value: BOSS SKELE KNIGHT
       objectReference: {fileID: 0}
+    - target: {fileID: 114849557029947896, guid: c983ee50f9f185543a457f7312092f8f,
+        type: 2}
+      propertyPath: knockback
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114849557029947896, guid: c983ee50f9f185543a457f7312092f8f,
+        type: 2}
+      propertyPath: knockbackLength
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c983ee50f9f185543a457f7312092f8f, type: 2}
   m_IsPrefabParent: 0
