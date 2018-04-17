@@ -10,11 +10,15 @@ public class Enemy_Health : MonoBehaviour {
         if (gameObject.transform.position.y < -20 || EnemyHealth <= 0)
         {
             //Debug.Log("Enemy Has Died");
-            Destroy(gameObject);
+            StartCoroutine(kill());
         }
     }
     public void reduceHealth(int damage) {
         EnemyHealth = EnemyHealth-damage;
         //Debug.Log("Enemy Health: " + EnemyHealth);
+    }
+    IEnumerator kill() {
+        yield return new WaitForSeconds(.01f);
+        Destroy(gameObject);
     }
 }

@@ -37,6 +37,7 @@ public class Boss_Move : MonoBehaviour {
 		private Animator animator;
 
 		public int bumpDamage;
+		private bool attack2;
 	void Start(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
@@ -88,12 +89,19 @@ public class Boss_Move : MonoBehaviour {
 			//Vector2 localScale = gameObject.transform.localScale;
 			StartCoroutine(TurnAround(localScale));
 		}
-		if(target.position.x - transform.position.x >= -7 && target.position.x - transform.position.x <= 7 && localScale.x*(target.position.x - transform.position.x) >= 0) {//&& localScale.x > 0) {
+		if(target.position.y - transform.position.y >= 6) {
+			if(!attack2) {
+				animator.ResetTrigger ("walk");
+				StartCoroutine(Attack_2());
+			}
+		}
+		else if(target.position.x - transform.position.x >= -7 && target.position.x - transform.position.x <= 7 && localScale.x*(target.position.x - transform.position.x) >= 0) {//&& localScale.x > 0) {
 			animator.SetTrigger("skill_1");
 		}/*
 		if (target.position.x - transform.position.x >= -7 && localScale.x < 0) {
 			animator.SetTrigger("skill_1");
 		}*/
+		//special above boss attack
 		if (path == null)
 			return;
 
@@ -138,6 +146,27 @@ public class Boss_Move : MonoBehaviour {
 		yield return new WaitForSeconds(4);
 		localScale.x *= -1;
 		transform.localScale = localScale;
+	}
+	IEnumerator Attack_2() {
+		attack2 = true;
+		//yield return new WaitForSeconds(3);
+		animator.SetTrigger("skill_2");
+		yield return new WaitForSeconds(1);
+		GameObject boulder = GameObject.Find("boulder1");
+		boulder.transform.position = new Vector3(target.position.x + 5, target.position.y + 10, 0);
+		boulder.GetComponent<Rigidbody2D>().isKinematic = false;
+		//boulder.transform.position.y = target.position.y + new Vector3(0,10;
+		yield return new WaitForSeconds(.5f);
+		boulder = GameObject.Find("boulder2");
+		boulder.transform.position = new Vector3(target.position.x - 5, target.position.y + 10, 0);
+		boulder.GetComponent<Rigidbody2D>().isKinematic = false;
+		yield return new WaitForSeconds(.5f);
+		boulder = GameObject.Find("boulder3");
+		boulder.transform.position = new Vector3(target.position.x, target.position.y + 10, 0);
+		boulder.GetComponent<Rigidbody2D>().isKinematic = false;
+		yield return new WaitForSeconds(2);
+		//yield return new WaitForSeconds(3);
+		attack2 = false;
 	}
 
 }

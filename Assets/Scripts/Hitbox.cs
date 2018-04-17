@@ -18,7 +18,7 @@ public class Hitbox : MonoBehaviour {
     {
         if (collision != null && hitActive == true)
         {
-            if (collision.tag == "enemy") {
+            if (collision.tag == "enemy" || collision.tag == "boss") {
                 //Destroy(collision.gameObject)  Destroys objects it touches
                 GameObject enemy = collision.gameObject;
                 Enemy_Health healthScript = enemy.GetComponent<Enemy_Health>();

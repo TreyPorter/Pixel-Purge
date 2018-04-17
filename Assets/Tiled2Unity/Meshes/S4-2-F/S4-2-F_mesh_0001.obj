@@ -1,0 +1,34 @@
+﻿# Tiled2Unity generated file. Do not modify by hand.
+# Wavefront file for 'S4-2-F_mesh_0001.obj'
+
+# Vertices (Count = 12)
+v -6806 -3154 0
+v -6859 -3154 0
+v -6859 -2988 0
+v -6806 -2988 0
+v -3154 -5312 0
+v -3207 -5312 0
+v -3207 -5146 0
+v -3154 -5146 0
+v -3154 -5478 0
+v -3207 -5478 0
+v -3207 -5312 0
+v -3154 -5312 0
+
+# Texture cooridinates (Count = 4)
+vt 0 0
+vt 1 0
+vt 1 1
+vt 0 1
+
+# Normal
+vn 0 0 -1
+
+# Mesh description
+g S4-2-F_mesh_0001
+
+# Faces
+f 1/1/1 2/2/1 3/3/1 4/4/1
+f 5/1/1 6/2/1 7/3/1 8/4/1
+f 9/1/1 10/2/1 11/3/1 12/4/1
+
