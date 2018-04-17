@@ -66,7 +66,7 @@ public class Player_Move_Prot : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         Attack();
         PlayerMove();
         //PlayerRaycast();
