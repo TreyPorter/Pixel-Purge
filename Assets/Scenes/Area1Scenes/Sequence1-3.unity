@@ -10427,14 +10427,14 @@ RectTransform:
   m_GameObject: {fileID: 503098426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5191086, y: 0.5191086, z: 0.5191086}
   m_Children: []
   m_Father: {fileID: 2109541041}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: -161}
+  m_AnchoredPosition: {x: -289, y: -48.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &507886002
@@ -11832,7 +11832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416216b383ef2db44b813234fd4c2242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.75
+  fallDelay: 3
 --- !u!50 &601021645
 Rigidbody2D:
   serializedVersion: 4
@@ -35161,7 +35161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416216b383ef2db44b813234fd4c2242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.75
+  fallDelay: 3
 --- !u!50 &1765571728
 Rigidbody2D:
   serializedVersion: 4
@@ -40354,7 +40354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416216b383ef2db44b813234fd4c2242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.75
+  fallDelay: 3
 --- !u!50 &1992707435
 Rigidbody2D:
   serializedVersion: 4
@@ -43246,7 +43246,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -43406,12 +43406,12 @@ Prefab:
     - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 79
+      value: 107
       objectReference: {fileID: 0}
     - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
         type: 2}
@@ -43452,6 +43452,21 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.3671029
+      objectReference: {fileID: 0}
+    - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.3671027
+      objectReference: {fileID: 0}
+    - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.3671027
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 021c43eeacb61f14480a7439ab95330c, type: 2}
