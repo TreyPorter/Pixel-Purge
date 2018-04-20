@@ -184,13 +184,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateRate: 2
-  speed: 300
+  speed: 250
   fMode: 0
   pathIsEnded: 0
   nextWaypointDistance: 3
   enemyDamage: 5
-  knockback: 10
-  knockbackLength: 0.2
+  knockback: 5
+  knockbackLength: 0.02
 --- !u!212 &212354203390039442
 SpriteRenderer:
   m_ObjectHideFlags: 1
