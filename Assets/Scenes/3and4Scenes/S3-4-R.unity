@@ -2638,11 +2638,11 @@ MonoBehaviour:
   lvlchange: 0
   lvl: 
   txtBox: {fileID: 262994593}
-  txtUsed: {fileID: 114626714607398554, guid: 37f9dabe427e4ee46af5b0f8ab743f36, type: 2}
+  txtUsed: {fileID: 849439492}
   txtF: {fileID: 4900000, guid: 39bd177d1e5715e458ac48a65115348a, type: 3}
   txtL: []
   curLine: 0
-  endLine: 3
+  endLine: 4
   isActive: 0
   player: {fileID: 0}
   stopPlayerMove: 0
@@ -4228,7 +4228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtUsed: {fileID: 4900000, guid: 39bd177d1e5715e458ac48a65115348a, type: 3}
   startLine: 0
-  endLine: 3
+  endLine: 4
   txtBox: {fileID: 0}
   destroyActive: 0
   desSomething: {fileID: 0}
