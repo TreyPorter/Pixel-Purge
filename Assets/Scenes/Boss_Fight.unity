@@ -24031,6 +24031,11 @@ Prefab:
       propertyPath: knockbackLength
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 114898722403138544, guid: c983ee50f9f185543a457f7312092f8f,
+        type: 2}
+      propertyPath: EnemyHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c983ee50f9f185543a457f7312092f8f, type: 2}
   m_IsPrefabParent: 0
@@ -25723,7 +25728,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1869209680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.428, y: 17.603, z: 0}
+  m_LocalPosition: {x: -12.25, y: 17.86, z: 0}
   m_LocalScale: {x: 3.1655643, y: 3.1655645, z: 3.1655645}
   m_Children:
   - {fileID: 1466828219}
