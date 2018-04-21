@@ -45,7 +45,7 @@ public class Boss_Move : MonoBehaviour {
 	void Start(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
-
+		rb.freezeRotation = true;
 		if (target == null) {
 			Debug.LogError ("No Player found? PANIC!");
 			return;

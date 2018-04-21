@@ -2456,7 +2456,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152282896264712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.98, y: -2.19, z: 0}
+  m_LocalPosition: {x: 36.4, y: -2.19, z: 0}
   m_LocalScale: {x: 0.029363817, y: 0.029363811, z: 0.029363811}
   m_Children:
   - {fileID: 4887569242588990}
@@ -3100,8 +3100,8 @@ MonoBehaviour:
   pathIsEnded: 0
   nextWaypointDistance: 2
   bumpDamage: 5
-  knockback: 10
-  knockbackLength: 0.2
+  knockback: 7
+  knockbackLength: 0.1
 --- !u!114 &114898722403138544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3113,7 +3113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 60
+  EnemyHealth: 100
 --- !u!210 &210932524939743890
 SortingGroup:
   m_ObjectHideFlags: 1
