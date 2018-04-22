@@ -19,6 +19,8 @@ public class Player_Move_Prot : MonoBehaviour {
     public int setPlayerDamage;
     float dashCD;
     public float dashPOW;
+    bool hasDashed;
+    bool disable;
 
     public GameObject sword;
     public GameObject axe;
@@ -59,6 +61,8 @@ public class Player_Move_Prot : MonoBehaviour {
         armAnim.SetBool("AxeActive", false);
         armAnim.SetBool("LanceActive", false);
         dashCD = 1;
+        hasDashed = false;
+        disable = false;
 
         playerDamage = setPlayerDamage;
         knockbackCount = 0;
@@ -74,7 +78,8 @@ public class Player_Move_Prot : MonoBehaviour {
 		Ranged ();
         if (dashCD > 1) { dashCD -= 1; }
         if (dashCD < 1) { dashCD = 1; }
-        if (Input.GetKeyDown("c") && dashCD == 1 && isGrounded == false) { dashCD = dashPOW; }
+        if (Input.GetKeyDown("c") && dashCD == 1 && isGrounded == false 
+            && hasDashed == false && disable == false) { dashCD = dashPOW; hasDashed = true; }
 
     }
 
@@ -88,22 +93,23 @@ public class Player_Move_Prot : MonoBehaviour {
     {
         // CONTROLS
         moveX = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump") && isGrounded == true && disable == false)
         {
             Jump();
         }
         // ANIMATIONS
         // PLAYER DIRECTION
-        if (moveX < 0.0f && facingLeft == false)
+        if (moveX < 0.0f && facingLeft == false && disable == false)
         {
             FlipPlayer();
         }
-        else if(moveX > 0.0f && facingLeft == true)
+        else if(moveX > 0.0f && facingLeft == true && disable == false)
         {
             FlipPlayer ();
         }
         // PHYSICS
-        if(knockbackCount <= 0) {
+        if(disable == true) { gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0); }
+        else if (knockbackCount <= 0) {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed * dashCD, gameObject.GetComponent<Rigidbody2D>().velocity.y + (dashCD - 1) * Input.GetAxis("Vertical"));
         }
         else {
@@ -129,7 +135,7 @@ public class Player_Move_Prot : MonoBehaviour {
 
     void Attack()
     {
-        if (Input.GetKeyDown("z") == true || Input.GetKey("z") == true) {
+        if ((Input.GetKeyDown("z") == true || Input.GetKey("z")) && disable == false) {
             //armAnim.SetBool("IsAttacking", true);
             armAnim.SetTrigger("Attack");
         }
@@ -137,7 +143,7 @@ public class Player_Move_Prot : MonoBehaviour {
             armAnim.SetBool("IsAttacking", false);
             //cur.GetComponent<Hitbox>().hitActive = false;
         }*/
-        if (Input.GetKeyDown("x") == true) {weaponSwap();}
+        if (Input.GetKeyDown("x") == true && disable == false) {weaponSwap();}
 
     }
 
@@ -176,6 +182,8 @@ public class Player_Move_Prot : MonoBehaviour {
         if ((rayDown != null || rayDown_R != null || rayDown_L != null) && (rayDown.collider != null || rayDown_R.collider != null || rayDown_L.collider != null) && col.collider.tag != "enemy")
         {
             isGrounded = true;
+            hasDashed = false;
+            dashCD = 1;
             anim.SetTrigger("Land");
             anim.SetBool("IsGrounded", isGrounded);
         }
@@ -297,4 +305,10 @@ public class Player_Move_Prot : MonoBehaviour {
             isGrounded = true;
         }
     }*/
+
+    public void Die()
+    {
+        if (disable != true) { anim.SetTrigger("GameOver"); }
+        disable = true;
+    }
 }
