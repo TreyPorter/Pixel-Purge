@@ -61,7 +61,7 @@ public class Player_Health : MonoBehaviour {
     void Die ()
     {
         dead = true;
-        FindObjectOfType<BackgroundAudioController>().currentAudio.Stop();
+        FindObjectOfType<BackgroundAudioController>().currentAudio.Pause();
         transform.Find("Death").GetComponent<AudioSource>().Play();
         
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);

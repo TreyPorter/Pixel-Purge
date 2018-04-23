@@ -47,6 +47,18 @@ public class BackgroundAudioController : MonoBehaviour {
                     currentAudio = transform.Find("6-Well").GetComponent<AudioSource>();
                     curAudio = playAudio;
                     break;
+                case 7:
+                    currentAudio = transform.Find("7-Mountain").GetComponent<AudioSource>();
+                    curAudio = playAudio;
+                    break;
+                case 8:
+                    currentAudio = transform.Find("8-Cave").GetComponent<AudioSource>();
+                    curAudio = playAudio;
+                    break;
+                case 9:
+                    currentAudio = transform.Find("9-Boss").GetComponent<AudioSource>();
+                    curAudio = playAudio;
+                    break;
             }
             currentAudio.Play();
         }
