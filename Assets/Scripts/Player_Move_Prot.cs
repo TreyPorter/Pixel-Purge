@@ -31,6 +31,7 @@ public class Player_Move_Prot : MonoBehaviour {
     public float knockbackLength;
     private float knockbackCount;
     private bool knockFromRight;
+    private bool knockFromAbove;
     // public bool isDead;
 
     //NPC talking, moved in NPC
@@ -78,7 +79,7 @@ public class Player_Move_Prot : MonoBehaviour {
 		Ranged ();
         if (dashCD > 1) { dashCD -= 1; }
         if (dashCD < 1) { dashCD = 1; }
-        if (Input.GetKeyDown("c") && dashCD == 1 && isGrounded == false 
+        if (Input.GetKeyDown("c") && dashCD == 1 && isGrounded == false
             && hasDashed == false && disable == false) { dashCD = dashPOW; hasDashed = true; }
 
     }
@@ -113,11 +114,17 @@ public class Player_Move_Prot : MonoBehaviour {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed * dashCD, gameObject.GetComponent<Rigidbody2D>().velocity.y + (dashCD - 1) * Input.GetAxis("Vertical"));
         }
         else {
-            if(knockFromRight) {
+            if(knockFromRight && !knockFromAbove) {
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
             }
-            if(!knockFromRight) {
+            if(knockFromRight && knockFromAbove) {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, -knockback);
+            }
+            if(!knockFromRight && !knockFromAbove) {
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+            }
+            if(!knockFromRight && knockFromAbove) {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, -knockback);
             }
             knockbackCount -= Time.deltaTime;
         }
@@ -221,6 +228,12 @@ public class Player_Move_Prot : MonoBehaviour {
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 100);
                 Debug.Log("Player pushed rught");
                 */
+            }
+            if(transform.position.y < col.transform.position.y) {
+                knockFromAbove = true;
+            }
+            else {
+                knockFromAbove = false;
             }
         }
         /*

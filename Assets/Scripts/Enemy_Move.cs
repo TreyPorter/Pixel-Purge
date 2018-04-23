@@ -174,7 +174,7 @@ public class Enemy_Move : MonoBehaviour {
             attackPlayer();
         }
         RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
-        if (rayDown != null && rayDown.collider != null && trig.collider.tag != "Player")
+        if (rayDown != null && rayDown.collider != null && trig.collider.tag != "Player" && trig.collider.tag != "enemy")
         {
             isGrounded = true;
             //anim.SetTrigger("Land");

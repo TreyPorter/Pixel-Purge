@@ -26,12 +26,15 @@ public class Player_Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (dead == true) { delay -= Time.deltaTime; }
-        if (gameObject.transform.position.y < -20 || health <= 0)
+        if (health <= 0)
         {
             //Debug.Log("Player Has Died");
             //hasDied = true;
             health = 0;
             Die();
+        }
+        if(gameObject.transform.position.y < -20) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         /*
