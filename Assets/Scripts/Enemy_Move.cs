@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemy_Move : MonoBehaviour {
 
-    private GameObject Player;
+    public GameObject Player;
     public int EnemySpeed;
     public int XMoveDirection;
     private BoxCollider2D boxCollider;
@@ -15,6 +15,8 @@ public class Enemy_Move : MonoBehaviour {
     private Transform target;
     public LayerMask blockingLayer;         //Layer on which collision will be checked.
     public int enemyDamage;
+    Animator anim;
+
 
     public bool jumper;
     private bool isGrounded;
@@ -29,6 +31,7 @@ public class Enemy_Move : MonoBehaviour {
 	void Start () {
         Player = GameObject.Find("Player");
         target = Player.transform;
+        anim = GetComponent<Animator>();
         //Get a component reference to this object's BoxCollider2D
         boxCollider = GetComponent <BoxCollider2D> ();
         //Get a component reference to this object's Rigidbody2D
@@ -197,7 +200,7 @@ public class Enemy_Move : MonoBehaviour {
             if (isGrounded) {
                 GetComponent<Rigidbody2D>().AddForce (Vector2.up * jumpPower);
                 isGrounded = false;
-                //anim.SetTrigger("Jump");
+                anim.SetTrigger("jump");
                 //anim.SetBool("IsGrounded", isGrounded);
             }
             yield return new WaitForSeconds(1f);

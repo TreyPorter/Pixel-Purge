@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d32e41400122c5459359f77cd6dac29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   EnemySpeed: 4
   XMoveDirection: 1
   blockingLayer:
@@ -152,7 +153,7 @@ MonoBehaviour:
   enemyDamage: 1
   jumper: 0
   jumpPower: 0
-  knockback: 10
+  knockback: 4
   knockbackLength: 0.2
 --- !u!114 &114743620498545040
 MonoBehaviour:
@@ -165,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 30
+  EnemyHealth: 40
 --- !u!212 &212156347066986296
 SpriteRenderer:
   m_ObjectHideFlags: 1
