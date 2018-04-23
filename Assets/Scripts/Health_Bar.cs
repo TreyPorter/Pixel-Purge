@@ -18,7 +18,7 @@ public class Health_Bar : MonoBehaviour {
         origSize = healthbar.sizeDelta.x;
 		maxhealth = FindObjectOfType<Player_Health>().maxhealth;
         GOanim = transform.Find("GameOverBack").GetComponent<Animator>();
-        delay = 3;
+        delay = 2;
         hitTrig = false;
 	}
 	
