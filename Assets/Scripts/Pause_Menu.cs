@@ -10,7 +10,7 @@ public class Pause_Menu : MonoBehaviour {
 
 	void Start () {
 
-		PauseUI.SetActive(false);
+		PauseUI.transform.Find("Canvas").gameObject.SetActive(false);
 
 	}
 
@@ -18,15 +18,17 @@ public class Pause_Menu : MonoBehaviour {
 
 		if(Input.GetButtonDown("Pause")){
 			paused =!paused;
+			//Debug.Log("Pause pressed");
 		}
 
 		if(paused){
-			PauseUI.SetActive(true);
+			//Debug.Log("Pause pressed");
+			PauseUI.transform.Find("Canvas").gameObject.SetActive(true);
 			Time.timeScale = 0;
 		}
 
 		if(!paused){
-			PauseUI.SetActive(false);
+			PauseUI.transform.Find("Canvas").gameObject.SetActive(false);
 			Time.timeScale = 1;
 		}
 	}
