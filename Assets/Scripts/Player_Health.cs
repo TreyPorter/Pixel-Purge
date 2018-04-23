@@ -9,7 +9,8 @@ public class Player_Health : MonoBehaviour {
 
     public static float health;
     public float maxhealth;
-
+    float delay;
+    bool dead;
 
 	// Use this for initialization
 	void Start () {
@@ -17,15 +18,19 @@ public class Player_Health : MonoBehaviour {
         if(health <= 0) {
             health = maxhealth;
         }
+        delay = 7;
+        dead = false;
     }
 
 
 	// Update is called once per frame
 	void Update () {
-		if(gameObject.transform.position.y < -20 || health <= 0)
+        if (dead == true) { delay -= Time.deltaTime; }
+        if (gameObject.transform.position.y < -20 || health <= 0)
         {
             //Debug.Log("Player Has Died");
             //hasDied = true;
+            health = 0;
             Die();
         }
 
@@ -55,8 +60,10 @@ public class Player_Health : MonoBehaviour {
 
     void Die ()
     {
-        health = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        dead = true;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        transform.GetComponent<Player_Move_Prot>().Die();
+        if (delay <= 0) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
         // yield return null;
         /*
         Debug.Log("Player has fallen");
