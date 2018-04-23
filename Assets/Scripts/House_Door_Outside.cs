@@ -14,6 +14,12 @@ public class House_Door_Outside : MonoBehaviour {
     void Start()
     {
         enterDoorText.SetActive(false);
+        
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("s")) { SceneManager.LoadScene(changeLevel); }
     }
 
     //once per frame
