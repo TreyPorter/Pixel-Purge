@@ -18,7 +18,7 @@ public class Player_Health : MonoBehaviour {
         if(health <= 0) {
             health = maxhealth;
         }
-        delay = 7;
+        delay = 5;
         dead = false;
     }
 
@@ -34,6 +34,7 @@ public class Player_Health : MonoBehaviour {
             Die();
         }
         if(gameObject.transform.position.y < -20) {
+            health = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
@@ -64,9 +65,15 @@ public class Player_Health : MonoBehaviour {
     void Die ()
     {
         dead = true;
+        FindObjectOfType<BackgroundAudioController>().currentAudio.Pause();
+        transform.Find("Death").GetComponent<AudioSource>().Play();
+        
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         transform.GetComponent<Player_Move_Prot>().Die();
-        if (delay <= 0) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+        if (delay <= 0) {
+            FindObjectOfType<BackgroundAudioController>().currentAudio.Play();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         // yield return null;
         /*
         Debug.Log("Player has fallen");
