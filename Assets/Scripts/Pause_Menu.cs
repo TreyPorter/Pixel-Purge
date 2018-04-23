@@ -22,7 +22,7 @@ public class Pause_Menu : MonoBehaviour {
 		}
 
 		if(paused){
-			//Debug.Log("Pause pressed");
+			Debug.Log("Pause pressed");
 			PauseUI.transform.Find("Canvas").gameObject.SetActive(true);
 			Time.timeScale = 0;
 		}
@@ -44,7 +44,8 @@ public class Pause_Menu : MonoBehaviour {
 
 	 public void Restart(){
 	 	//string scene = SceneManager.GetActiveScene.name();
-	 	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		Resume();
+	 	Player_Health.health = 0;
 	 	//Application.LoadLevel(Application.loadedLevel);
 	 }
 

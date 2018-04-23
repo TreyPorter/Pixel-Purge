@@ -34,6 +34,7 @@ public class Player_Health : MonoBehaviour {
             Die();
         }
         if(gameObject.transform.position.y < -20) {
+            health = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 

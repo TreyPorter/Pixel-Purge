@@ -16,6 +16,9 @@ public class Main_Menu : MonoBehaviour {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 		//index 2 = level prototype
 	}
+	public void Quit(){
+	   Application.Quit();
+	}
 	public void Options()
 	{
 		//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
