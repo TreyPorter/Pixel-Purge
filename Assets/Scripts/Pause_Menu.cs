@@ -9,13 +9,13 @@ public class Pause_Menu : MonoBehaviour {
 	private bool paused = false;
 
 	void Start () {
-		
-		PauseUI.SetActive(false); 
+
+		PauseUI.SetActive(false);
 
 	}
-	
+
 	void Update () {
-		
+
 		if(Input.GetButtonDown("Pause")){
 			paused =!paused;
 		}
@@ -55,6 +55,6 @@ public class Pause_Menu : MonoBehaviour {
 	 	//Scene scene = SceneManager.GetActiveScene();
 	 	//SceneManager.UnloadSceneAsync(scene.buildIndex);
 	 	//SceneManager.Quit();
-	 	//Application.Quit();
+	 	Application.Quit();
 	 }
 }
