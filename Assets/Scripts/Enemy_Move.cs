@@ -46,6 +46,12 @@ public class Enemy_Move : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        Vector2 localScale = gameObject.transform.localScale;
+		if((target.position.x < transform.position.x && localScale.x < 0) || (target.position.x > transform.position.x && localScale.x > 0)) {
+			//Debug.Log(target.position.x + ", " + transform.position.x);
+            localScale.x *= -1;
+    		transform.localScale = localScale;
+		}
         if(knockbackCount <= 0) {
             MoveEnemy<MonoBehaviour>();
         }
