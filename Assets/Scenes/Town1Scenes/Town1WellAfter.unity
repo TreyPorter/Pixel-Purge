@@ -4118,12 +4118,12 @@ Prefab:
     - target: {fileID: 61053208400040772, guid: 3eb759c82048aad4994274d9c0778d32,
         type: 2}
       propertyPath: m_Offset.y
-      value: -0.5928192
+      value: -8.0916
       objectReference: {fileID: 0}
     - target: {fileID: 61053208400040772, guid: 3eb759c82048aad4994274d9c0778d32,
         type: 2}
       propertyPath: m_Size.y
-      value: 5.624362
+      value: 20.621925
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3eb759c82048aad4994274d9c0778d32, type: 2}
@@ -7391,12 +7391,12 @@ Prefab:
     - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 79
+      value: 255
       objectReference: {fileID: 0}
     - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 18
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
         type: 2}
@@ -7437,6 +7437,21 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.1813202
+      objectReference: {fileID: 0}
+    - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3.181322
+      objectReference: {fileID: 0}
+    - target: {fileID: 224353732131294522, guid: 021c43eeacb61f14480a7439ab95330c,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 3.181322
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 021c43eeacb61f14480a7439ab95330c, type: 2}
@@ -9848,7 +9863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: -161}
+  m_AnchoredPosition: {x: -12, y: -119}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &504102080
@@ -20425,7 +20440,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 12.957024, y: -0.5928192}
+  m_Offset: {x: 12.957024, y: -8.0916}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -20436,7 +20451,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 34.527817, y: 5.624362}
+  m_Size: {x: 34.527817, y: 20.621925}
   m_EdgeRadius: 0
 --- !u!212 &1093193255
 SpriteRenderer:
@@ -21180,6 +21195,48 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &1126737374
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.065463
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.279746
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.15213189
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657347256365550, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cf2eeb819a8404546954d5c87ad5b6b1, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1127670635
 Prefab:
   m_ObjectHideFlags: 0
@@ -24251,12 +24308,12 @@ Prefab:
     - target: {fileID: 61053208400040772, guid: 3eb759c82048aad4994274d9c0778d32,
         type: 2}
       propertyPath: m_Offset.x
-      value: 12.957024
+      value: 8.6655655
       objectReference: {fileID: 0}
     - target: {fileID: 61053208400040772, guid: 3eb759c82048aad4994274d9c0778d32,
         type: 2}
       propertyPath: m_Size.x
-      value: 34.527817
+      value: 43.110733
       objectReference: {fileID: 0}
     - target: {fileID: 4294541374516900, guid: 3eb759c82048aad4994274d9c0778d32, type: 2}
       propertyPath: m_LocalScale.x
@@ -28697,7 +28754,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 12.957024, y: -0.5928192}
+  m_Offset: {x: 8.6655655, y: -0.5928192}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -28708,7 +28765,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 34.527817, y: 5.624362}
+  m_Size: {x: 43.110733, y: 5.624362}
   m_EdgeRadius: 0
 --- !u!212 &1500647825
 SpriteRenderer:
@@ -41700,10 +41757,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

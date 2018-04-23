@@ -109,8 +109,12 @@ public class EnemyAI : MonoBehaviour {
 			return;
 		}
 
-		//TODO: Always look at player? (directional manipulation)
-
+		Vector2 localScale = gameObject.transform.localScale;
+		if((target.position.x < transform.position.x && localScale.x < 0) || (target.position.x > transform.position.x && localScale.x > 0)) {
+			//Debug.Log(target.position.x + ", " + transform.position.x);
+			localScale.x *= -1;
+			transform.localScale = localScale;
+		}
 		if (path == null)
 			return;
 

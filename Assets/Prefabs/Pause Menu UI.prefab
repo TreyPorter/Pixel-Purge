@@ -176,6 +176,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4657347256365550}
+  - component: {fileID: 114602139833176618}
   m_Layer: 0
   m_Name: Pause Menu UI
   m_TagString: Untagged
@@ -314,7 +315,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114602139833176618}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -428,7 +429,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114602139833176618}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -480,7 +481,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114602139833176618}
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -592,7 +593,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114602139833176618}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -632,6 +633,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114602139833176618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830660390881074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9821d687b6be1cd43b07aab11659ef1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseUI: {fileID: 1830660390881074}
 --- !u!114 &114632971437183396
 MonoBehaviour:
   m_ObjectHideFlags: 1

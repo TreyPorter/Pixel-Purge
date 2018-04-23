@@ -9,24 +9,26 @@ public class Pause_Menu : MonoBehaviour {
 	private bool paused = false;
 
 	void Start () {
-		
-		PauseUI.SetActive(false); 
+
+		PauseUI.transform.Find("Canvas").gameObject.SetActive(false);
 
 	}
-	
+
 	void Update () {
-		
+
 		if(Input.GetButtonDown("Pause")){
 			paused =!paused;
+			//Debug.Log("Pause pressed");
 		}
 
 		if(paused){
-			PauseUI.SetActive(true);
+			Debug.Log("Pause pressed");
+			PauseUI.transform.Find("Canvas").gameObject.SetActive(true);
 			Time.timeScale = 0;
 		}
 
 		if(!paused){
-			PauseUI.SetActive(false);
+			PauseUI.transform.Find("Canvas").gameObject.SetActive(false);
 			Time.timeScale = 1;
 		}
 	}
@@ -42,7 +44,8 @@ public class Pause_Menu : MonoBehaviour {
 
 	 public void Restart(){
 	 	//string scene = SceneManager.GetActiveScene.name();
-	 	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		Resume();
+	 	Player_Health.health = 0;
 	 	//Application.LoadLevel(Application.loadedLevel);
 	 }
 
@@ -55,6 +58,6 @@ public class Pause_Menu : MonoBehaviour {
 	 	//Scene scene = SceneManager.GetActiveScene();
 	 	//SceneManager.UnloadSceneAsync(scene.buildIndex);
 	 	//SceneManager.Quit();
-	 	//Application.Quit();
+	 	Application.Quit();
 	 }
 }
