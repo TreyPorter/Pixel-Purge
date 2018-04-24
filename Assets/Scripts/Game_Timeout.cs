@@ -21,7 +21,8 @@ public class Game_Timeout : MonoBehaviour {
 
 	public void MainMenu(){
 	   Debug.Log("Main Menu pressed");
-	   SceneManager.LoadScene(0);
+        if (FindObjectOfType<BackgroundAudioController>()) { Destroy(FindObjectOfType<BackgroundAudioController>()); }
+        SceneManager.LoadScene(0);
 	   //Application.LoadLevel(0); //Loads the level in Build Settings with Index of 1
 	}
 

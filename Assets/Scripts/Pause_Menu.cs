@@ -56,6 +56,7 @@ public class Pause_Menu : MonoBehaviour {
 
 	 public void MainMenu(){
 		Debug.Log("Main Menu pressed");
+        if (FindObjectOfType<BackgroundAudioController>()) { Destroy(FindObjectOfType<BackgroundAudioController>()); }
 	 	SceneManager.LoadScene(0);
 	 	//Application.LoadLevel(0); //Loads the level in Build Settings with Index of 1
 	 }
