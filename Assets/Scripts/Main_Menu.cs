@@ -13,7 +13,7 @@ public class Main_Menu : MonoBehaviour {
 
 	public void Button2()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
 		//index 2 = level prototype
 	}
 	public void Quit(){
