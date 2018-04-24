@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Main Menu.unity
     guid: 0c22c8a434000fd4f9050067e70e09e9
   - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 380d21b05c15a22499b04ac639425351
+  - enabled: 1
     path: Assets/Scenes/Area1Scenes/Sequence1-1.unity
     guid: 878c6e030bf517449b221b1577b06253
   - enabled: 1
@@ -86,9 +89,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WellScenes/Well1.unity
     guid: 3684d1b21a2248d40a2c433f67ce9158
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/WellScenes/WellFinal.unity
     guid: ea477f52d7f432a48a920e8a374a805a
