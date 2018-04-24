@@ -15,7 +15,6 @@ public class Pause_Menu : MonoBehaviour {
 	}
 
 	void Update () {
-
 		if(Input.GetButtonDown("Pause")){
 			paused =!paused;
 			Debug.Log("Game Pause");

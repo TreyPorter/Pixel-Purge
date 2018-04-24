@@ -7,7 +7,7 @@ public class Game_Timeout : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(EndGame());
+		//StartCoroutine(EndGame());
 	}
 
 	// Update is called once per frame
@@ -15,7 +15,21 @@ public class Game_Timeout : MonoBehaviour {
 
 	}
 	IEnumerator EndGame() {
-		yield return new WaitForSeconds(20f);
+		yield return new WaitForSeconds(30f);
 		SceneManager.LoadScene(0);
+	}
+
+	public void MainMenu(){
+	   Debug.Log("Main Menu pressed");
+	   SceneManager.LoadScene(0);
+	   //Application.LoadLevel(0); //Loads the level in Build Settings with Index of 1
+	}
+
+	public void Quit(){
+	   Debug.Log("Quit pressed");
+	   //Scene scene = SceneManager.GetActiveScene();
+	   //SceneManager.UnloadSceneAsync(scene.buildIndex);
+	   //SceneManager.Quit();
+	   Application.Quit();
 	}
 }
