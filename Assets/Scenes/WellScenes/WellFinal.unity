@@ -7439,7 +7439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enterDoorText: {fileID: 1443440597}
-  changeLevel: Well3Back
+  changeLevel: CastleScene
 --- !u!61 &332076199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29201,6 +29201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1431602153}
   - component: {fileID: 1431602154}
+  - component: {fileID: 1431602155}
   m_Layer: 0
   m_Name: Block (12)
   m_TagString: Untagged
@@ -29265,6 +29266,31 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!61 &1431602155
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1431602152}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: bf331590668cae744b6767c69f93b6d4, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.0628624, y: 8.466348}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.25, y: 0.94}
+    newSize: {x: 1.25, y: 0.94}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.604332, y: 17.872694}
+  m_EdgeRadius: 0
 --- !u!1 &1432000767
 GameObject:
   m_ObjectHideFlags: 0
