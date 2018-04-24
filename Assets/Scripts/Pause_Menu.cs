@@ -18,7 +18,7 @@ public class Pause_Menu : MonoBehaviour {
 
 		if(Input.GetButtonDown("Pause")){
 			paused =!paused;
-			Debug.Log("Pause pressed");
+			Debug.Log("Game Pause");
 		}
 
 		if(paused){
@@ -43,22 +43,26 @@ public class Pause_Menu : MonoBehaviour {
 	 */
 
 	 public void Resume(){
+		Debug.Log("Resume pressed");
 	 	paused = false;
 	 }
 
 	 public void Restart(){
 	 	//string scene = SceneManager.GetActiveScene.name();
+		Debug.Log("Restart pressed");
 		Resume();
 	 	Player_Health.health = 0;
 	 	//Application.LoadLevel(Application.loadedLevel);
 	 }
 
 	 public void MainMenu(){
+		Debug.Log("Main Menu pressed");
 	 	SceneManager.LoadScene(0);
 	 	//Application.LoadLevel(0); //Loads the level in Build Settings with Index of 1
 	 }
 
 	 public void Quit(){
+		Debug.Log("Quit pressed");
 	 	//Scene scene = SceneManager.GetActiveScene();
 	 	//SceneManager.UnloadSceneAsync(scene.buildIndex);
 	 	//SceneManager.Quit();
