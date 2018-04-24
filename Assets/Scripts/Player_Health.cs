@@ -9,7 +9,7 @@ public class Player_Health : MonoBehaviour {
 
     public static float health;
     public float maxhealth;
-    float delay;
+    public float delay;
     bool dead;
 
 	// Use this for initialization
@@ -18,7 +18,7 @@ public class Player_Health : MonoBehaviour {
         if(health <= 0) {
             health = maxhealth;
         }
-        delay = 5;
+        delay = 3.5f;
         dead = false;
     }
 
@@ -31,11 +31,18 @@ public class Player_Health : MonoBehaviour {
             //Debug.Log("Player Has Died");
             //hasDied = true;
             health = 0;
+            //dead = true;
             Die();
         }
-        if(gameObject.transform.position.y < -20) {
+        if(gameObject.transform.position.y < -20 && dead != true) {
+            //health = 0;
+            delay = 2.75f;
+            FindObjectOfType<Health_Bar>().delay = 0.5f;
             health = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //dead = true;
+            Die();
+            //dead = 2;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         /*
@@ -49,6 +56,7 @@ public class Player_Health : MonoBehaviour {
     }
     public static void reduceHealth(int damage) {
         health = health-damage;
+        FindObjectOfType<Player_Health>().transform.Find("Hurt").GetComponent<AudioSource>().Play();
     }
 
     /*
@@ -64,10 +72,10 @@ public class Player_Health : MonoBehaviour {
 
     void Die ()
     {
-        dead = true;
         FindObjectOfType<BackgroundAudioController>().currentAudio.Pause();
-        transform.Find("Death").GetComponent<AudioSource>().Play();
-        
+        if (dead != true) { transform.Find("Death").GetComponent<AudioSource>().Play(); }
+        dead = true;
+
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         transform.GetComponent<Player_Move_Prot>().Die();
         if (delay <= 0) {

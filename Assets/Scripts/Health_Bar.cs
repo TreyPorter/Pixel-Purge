@@ -10,7 +10,7 @@ public class Health_Bar : MonoBehaviour {
     float origSize;
 	private float maxhealth = 0;
     Animator GOanim;
-    float delay;
+    public float delay;
     bool hitTrig;
 
 	void Start () {
