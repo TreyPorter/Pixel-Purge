@@ -9,10 +9,15 @@ public class Win : MonoBehaviour {
     Enemy_Health script;
     private int BossHealth;
     public GameObject TextUI;
+    public GameObject Exit_Door;
+    public GameObject Exit_Text;
     void Start() {
         script = GameObject.Find("BOSS SKELE KNIGHT").GetComponent<Enemy_Health>();
         BossHealth = script.EnemyHealth;
         TextUI.gameObject.GetComponent<Text>().text = ("");
+        Exit_Door = GameObject.Find("Exit");
+        Exit_Door.SetActive(false);
+        Exit_Text.SetActive(false);
     }
     void Update()
     {
@@ -20,6 +25,8 @@ public class Win : MonoBehaviour {
         if (BossHealth <= 0)
         {
             TextUI.gameObject.GetComponent<Text>().text = (message);
+            Exit_Door.SetActive(true);
+            Exit_Text.SetActive(true);
         }
     }
 }

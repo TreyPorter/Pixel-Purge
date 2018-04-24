@@ -9,8 +9,8 @@ public class Pause_Menu : MonoBehaviour {
 	private bool paused = false;
 
 	void Start () {
-
-		PauseUI.transform.Find("Canvas").gameObject.SetActive(false);
+		if(PauseUI.transform.Find("Canvas"))
+			PauseUI.transform.Find("Canvas").gameObject.SetActive(false);
 
 	}
 
@@ -18,17 +18,21 @@ public class Pause_Menu : MonoBehaviour {
 
 		if(Input.GetButtonDown("Pause")){
 			paused =!paused;
-			//Debug.Log("Pause pressed");
+			Debug.Log("Pause pressed");
 		}
 
 		if(paused){
-			Debug.Log("Pause pressed");
-			PauseUI.transform.Find("Canvas").gameObject.SetActive(true);
+			//Debug.Log("Pause pressed");
+			if(PauseUI.transform.Find("Canvas")) {
+				PauseUI.transform.Find("Canvas").gameObject.SetActive(true);
+			}
 			Time.timeScale = 0;
 		}
 
 		if(!paused){
-			PauseUI.transform.Find("Canvas").gameObject.SetActive(false);
+			if(PauseUI.transform.Find("Canvas")) {
+				PauseUI.transform.Find("Canvas").gameObject.SetActive(false);
+			}
 			Time.timeScale = 1;
 		}
 	}
