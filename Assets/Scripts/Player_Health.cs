@@ -65,13 +65,17 @@ public class Player_Health : MonoBehaviour {
     void Die ()
     {
         dead = true;
-        FindObjectOfType<BackgroundAudioController>().currentAudio.Pause();
+        if(FindObjectOfType<BackgroundAudioController>()) {
+            FindObjectOfType<BackgroundAudioController>().currentAudio.Pause();
+        }
         transform.Find("Death").GetComponent<AudioSource>().Play();
-        
+
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         transform.GetComponent<Player_Move_Prot>().Die();
         if (delay <= 0) {
-            FindObjectOfType<BackgroundAudioController>().currentAudio.Play();
+            if(FindObjectOfType<BackgroundAudioController>()) {
+                FindObjectOfType<BackgroundAudioController>().currentAudio.Play();
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         // yield return null;
