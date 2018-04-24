@@ -258,7 +258,7 @@ Prefab:
     - target: {fileID: 114670752800442602, guid: d064b6e375a64634e8e2ffa259f0a446,
         type: 2}
       propertyPath: changeLevel
-      value: Boss_Fight
+      value: CastleScene
       objectReference: {fileID: 0}
     - target: {fileID: 61319614510026288, guid: d064b6e375a64634e8e2ffa259f0a446,
         type: 2}
