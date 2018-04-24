@@ -3621,7 +3621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enterDoorText: {fileID: 383066555}
-  changeLevel: WellFinal
+  changeLevel: WellSecond
 --- !u!61 &542435781
 BoxCollider2D:
   m_ObjectHideFlags: 0
