@@ -3117,22 +3117,6 @@ Transform:
   m_Father: {fileID: 212815385}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &672053634 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1230889495950218, guid: cf2eeb819a8404546954d5c87ad5b6b1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1187001005}
---- !u!225 &672053639
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 672053634}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &697322414
 GameObject:
   m_ObjectHideFlags: 0
