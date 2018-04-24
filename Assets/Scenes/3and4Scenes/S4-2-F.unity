@@ -2113,11 +2113,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 397574550}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bf331590668cae744b6767c69f93b6d4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 12000, y: -3000}
+  m_Offset: {x: 11438.942, y: -2716.2324}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2128,7 +2128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 200, y: 2000}
+  m_Size: {x: 49.83789, y: 2567.5354}
   m_EdgeRadius: 0
 --- !u!61 &397574557
 BoxCollider2D:
@@ -2138,11 +2138,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 397574550}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bf331590668cae744b6767c69f93b6d4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 800, y: -4000}
+  m_Offset: {x: 1408.8665, y: -2929.7866}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2153,7 +2153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 200, y: 2000}
+  m_Size: {x: 170.9878, y: 2875.1826}
   m_EdgeRadius: 0
 --- !u!1 &407070702
 GameObject:
@@ -4945,6 +4945,7 @@ PolygonCollider2D:
     - - {x: 5357, y: -3008}
       - {x: 5357, y: -2626}
       - {x: 3456, y: -2626}
+      - {x: 3349.353, y: -2202.3872}
       - {x: 3456, y: -3008}
 --- !u!1 &988089948
 GameObject:
@@ -8604,7 +8605,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1666734030}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bf331590668cae744b6767c69f93b6d4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
