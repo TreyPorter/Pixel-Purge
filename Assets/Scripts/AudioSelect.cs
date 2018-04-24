@@ -7,11 +7,13 @@ public class AudioSelect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        FindObjectOfType<BackgroundAudioController>().playAudio = playAudio;
+        if(FindObjectOfType<BackgroundAudioController>()) {
+            FindObjectOfType<BackgroundAudioController>().playAudio = playAudio;
+        }
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
