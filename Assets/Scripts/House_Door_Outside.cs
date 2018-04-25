@@ -19,7 +19,7 @@ public class House_Door_Outside : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown("i")) { SceneManager.LoadScene(changeLevel); }
+        //if (Input.GetKeyDown("i")) { SceneManager.LoadScene(changeLevel); }
     }
 
     //once per frame
