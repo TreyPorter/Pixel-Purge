@@ -10,10 +10,20 @@ public class Enemy_Health : MonoBehaviour {
         if (gameObject.transform.position.y < -20 || EnemyHealth <= 0)
         {
             //Debug.Log("Enemy Has Died");
-            Destroy(gameObject);
+            StartCoroutine(kill());
         }
     }
-    public void reduceHealth(int damage) {
+    //Returns false if the enemy dies on hit
+    public bool reduceHealth(int damage) {
         EnemyHealth = EnemyHealth-damage;
+        if(EnemyHealth>0)
+        {
+            return true;
+        }
+        return false;
+    }
+    IEnumerator kill() {
+        yield return new WaitForSeconds(.01f);
+        Destroy(gameObject);
     }
 }

@@ -22,13 +22,12 @@ GameObject:
   - component: {fileID: 212354203390039442}
   - component: {fileID: 61815540470518202}
   - component: {fileID: 50490666473519446}
-  - component: {fileID: 114875604941225278}
   - component: {fileID: 95820891538434048}
   - component: {fileID: 114991349410717360}
   - component: {fileID: 114543202954769230}
   - component: {fileID: 114895521511530028}
   - component: {fileID: 61146839515591484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: '[ENEMY] Crawler V2'
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -42,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1994554974768288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -1.57, z: 0.19921875}
+  m_LocalPosition: {x: 9.6321745, y: -1.2489351, z: 0.19921875}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,7 +126,7 @@ Animator:
   m_GameObject: {fileID: 1994554974768288}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0d1c9a1e0f6944a4ea26d36791f1bf34, type: 2}
+  m_Controller: {fileID: 9100000, guid: 24a2a93d3ea825249beb1b41d06e50a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -161,28 +160,6 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask: -1
---- !u!114 &114875604941225278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1994554974768288}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d32e41400122c5459359f77cd6dac29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  EnemySpeed: 4
-  XMoveDirection: 1
-  blockingLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyDamage: 1
-  jumper: 0
-  jumpPower: 0
-  knockback: 0
-  knockbackLength: 0
 --- !u!114 &114895521511530028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 5
+  EnemyHealth: 40
 --- !u!114 &114991349410717360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,12 +183,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bf3cf17c44dd54795898ed8cc69a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   updateRate: 2
   speed: 300
   fMode: 0
   pathIsEnded: 0
   nextWaypointDistance: 3
+  enemyDamage: 5
+  knockback: 7
+  knockbackLength: 0.2
 --- !u!212 &212354203390039442
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -246,7 +225,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ce7572728d93f0e4a9598e2623927025, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d62789964f5c9a4c990e8f19621a366, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

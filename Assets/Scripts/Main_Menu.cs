@@ -11,10 +11,13 @@ public class Main_Menu : MonoBehaviour {
 		//technically index 1 = test environment
 	}
 
-	public void Level1()
+	public void Button2()
 	{
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
 		//index 2 = level prototype
+	}
+	public void Quit(){
+	   Application.Quit();
 	}
 	public void Options()
 	{

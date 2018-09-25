@@ -18,12 +18,25 @@ public class Hitbox : MonoBehaviour {
     {
         if (collision != null && hitActive == true)
         {
-            if (collision.tag == "enemy") {
+            if (collision.tag == "enemy" || collision.tag == "boss") {
                 //Destroy(collision.gameObject)  Destroys objects it touches
                 GameObject enemy = collision.gameObject;
                 Enemy_Health healthScript = enemy.GetComponent<Enemy_Health>();
-                healthScript.reduceHealth(Player_Move_Prot.playerDamage);
-                enemy.GetComponent<Enemy_Move>().knockbackEnemy();
+                if (healthScript.reduceHealth(Player_Move_Prot.playerDamage))
+                {
+                    if (enemy.GetComponent<Enemy_Move>())
+                    {
+                        enemy.GetComponent<Enemy_Move>().knockbackEnemy();
+                    }
+                    if (enemy.GetComponent<EnemyAI>())
+                    {
+                        enemy.GetComponent<EnemyAI>().knockbackEnemy();
+                    }
+                    if (enemy.GetComponent<Boss_Move>())
+                    {
+                        enemy.GetComponent<Boss_Move>().knockbackEnemy();
+                    }
+                }
                 Debug.Log("Enemy hit");
             }
         }

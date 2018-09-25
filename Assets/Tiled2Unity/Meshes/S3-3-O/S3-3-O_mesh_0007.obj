@@ -1,0 +1,24 @@
+﻿# Tiled2Unity generated file. Do not modify by hand.
+# Wavefront file for 'S3-3-O_mesh_0007.obj'
+
+# Vertices (Count = 4)
+v -1.314852 -6.245545 0
+v -1.643564 -6.245545 0
+v -1.643564 -5.916832 0
+v -1.314852 -5.916832 0
+
+# Texture cooridinates (Count = 4)
+vt 0 0
+vt 1 0
+vt 1 1
+vt 0 1
+
+# Normal
+vn 0 0 -1
+
+# Mesh description
+g S3-3-O_mesh_0007
+
+# Faces
+f 1/1/1 2/2/1 3/3/1 4/4/1
+

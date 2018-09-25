@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609913567165174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.24, y: -1.51, z: 0}
+  m_LocalPosition: {x: 17.13, y: 1.2, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 1609913567165174}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0d1c9a1e0f6944a4ea26d36791f1bf34, type: 2}
+  m_Controller: {fileID: 9100000, guid: 252352a8134b7aa458fec6e070691d8f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   enemyDamage: 1
   jumper: 1
   jumpPower: 10000
-  knockback: 12
+  knockback: 8
   knockbackLength: 0.2
 --- !u!114 &114745419311477220
 MonoBehaviour:
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d8dc5d346d92498a1a68b7296b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 5
+  EnemyHealth: 30
 --- !u!212 &212905362562020228
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -201,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ce7572728d93f0e4a9598e2623927025, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d76ef56e44e99e4db1e4210a5490c9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

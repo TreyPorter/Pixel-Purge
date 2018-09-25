@@ -37,16 +37,21 @@ public class Boss_Move : MonoBehaviour {
 		private Animator animator;
 
 		public int bumpDamage;
+		private bool attack2;
+		public float knockback;
+		public float knockbackLength;
+		private float knockbackCount;
+		private bool knockFromRight;
 	void Start(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
-
+		rb.freezeRotation = true;
 		if (target == null) {
 			Debug.LogError ("No Player found? PANIC!");
 			return;
 		}
 		animator = this.GetComponent<Animator> ();
-
+		knockbackCount = 0;
 		//Start a new path to the target position, return the result to the OnPathComplete function
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
 
@@ -88,12 +93,19 @@ public class Boss_Move : MonoBehaviour {
 			//Vector2 localScale = gameObject.transform.localScale;
 			StartCoroutine(TurnAround(localScale));
 		}
-		if(target.position.x - transform.position.x >= -7 && target.position.x - transform.position.x <= 7 && localScale.x*(target.position.x - transform.position.x) >= 0) {//&& localScale.x > 0) {
+		if(target.position.y - transform.position.y >= 6) {
+			if(!attack2) {
+				animator.ResetTrigger ("walk");
+				StartCoroutine(Attack_2());
+			}
+		}
+		else if(target.position.x - transform.position.x >= -7 && target.position.x - transform.position.x <= 7 && localScale.x*(target.position.x - transform.position.x) >= 0) {//&& localScale.x > 0) {
 			animator.SetTrigger("skill_1");
 		}/*
 		if (target.position.x - transform.position.x >= -7 && localScale.x < 0) {
 			animator.SetTrigger("skill_1");
 		}*/
+		//special above boss attack
 		if (path == null)
 			return;
 
@@ -113,13 +125,40 @@ public class Boss_Move : MonoBehaviour {
 		dir *= speed * Time.fixedDeltaTime;
 
 		//Move the AI
-		rb.AddForce(dir, fMode);
-		animator.SetTrigger("walk");
+		if (knockbackCount <= 0)
+        {
+            rb.AddForce(dir, fMode);
+			animator.SetTrigger("walk");
+        }
+        else
+        {
+            if (knockFromRight)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+            }
+            if (!knockFromRight)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
 		//check if close enough to the next waypoint, if so, proceed next waypoint
 		float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]); //check the 2nd parameter for this one
 		if (dist < nextWaypointDistance) {
 			currentWaypoint++;
 			return;
+		}
+	}
+	public void knockbackEnemy()
+	{
+		knockbackCount = knockbackLength;
+		if (transform.position.x < target.position.x)
+		{
+			knockFromRight = true;
+		}
+		else
+		{
+			knockFromRight = false;
 		}
 	}
 	private void OnCollisionEnter2D(Collision2D trig)
@@ -138,6 +177,27 @@ public class Boss_Move : MonoBehaviour {
 		yield return new WaitForSeconds(4);
 		localScale.x *= -1;
 		transform.localScale = localScale;
+	}
+	IEnumerator Attack_2() {
+		attack2 = true;
+		//yield return new WaitForSeconds(3);
+		animator.SetTrigger("skill_2");
+		yield return new WaitForSeconds(1);
+		GameObject boulder = GameObject.Find("boulder1");
+		boulder.transform.position = new Vector3(target.position.x + 5, target.position.y + 10, 0);
+		boulder.GetComponent<Rigidbody2D>().isKinematic = false;
+		//boulder.transform.position.y = target.position.y + new Vector3(0,10;
+		yield return new WaitForSeconds(.5f);
+		boulder = GameObject.Find("boulder2");
+		boulder.transform.position = new Vector3(target.position.x - 5, target.position.y + 10, 0);
+		boulder.GetComponent<Rigidbody2D>().isKinematic = false;
+		yield return new WaitForSeconds(.5f);
+		boulder = GameObject.Find("boulder3");
+		boulder.transform.position = new Vector3(target.position.x, target.position.y + 10, 0);
+		boulder.GetComponent<Rigidbody2D>().isKinematic = false;
+		yield return new WaitForSeconds(2);
+		//yield return new WaitForSeconds(3);
+		attack2 = false;
 	}
 
 }

@@ -10,7 +10,8 @@ public class EnemyAI : MonoBehaviour {
 
 	/* Variables/Objects */
 		//Which object to chase?
-		public Transform target;
+		private GameObject Player;
+		private Transform target;
 
 		//How many times each second we will update our path
 		public float updateRate = 2f;
@@ -36,8 +37,13 @@ public class EnemyAI : MonoBehaviour {
 		private int currentWaypoint = 0;
 
 		public int enemyDamage;
-
+		public float knockback;
+		public float knockbackLength;
+		private float knockbackCount;
+		private bool knockFromRight;
 	void Start(){
+		Player = GameObject.Find("Player");
+        target = Player.transform;
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
 
@@ -45,7 +51,7 @@ public class EnemyAI : MonoBehaviour {
 			Debug.LogError ("No Player found? PANIC!");
 			return;
 		}
-
+		knockbackCount = 0;
 		//Start a new path to the target position, return the result to the OnPathComplete function
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
 
@@ -72,6 +78,18 @@ public class EnemyAI : MonoBehaviour {
 			currentWaypoint = 0;
 		}
 	}
+	public void knockbackEnemy()
+    {
+        knockbackCount = knockbackLength;
+        if (transform.position.x < target.position.x)
+        {
+            knockFromRight = true;
+        }
+        else
+        {
+            knockFromRight = false;
+        }
+    }
 	private void OnCollisionEnter2D(Collision2D trig)
 	{
 		if (trig.gameObject.tag == "Player")
@@ -91,8 +109,12 @@ public class EnemyAI : MonoBehaviour {
 			return;
 		}
 
-		//TODO: Always look at player? (directional manipulation)
-
+		Vector2 localScale = gameObject.transform.localScale;
+		if((target.position.x < transform.position.x && localScale.x < 0) || (target.position.x > transform.position.x && localScale.x > 0)) {
+			//Debug.Log(target.position.x + ", " + transform.position.x);
+			localScale.x *= -1;
+			transform.localScale = localScale;
+		}
 		if (path == null)
 			return;
 
@@ -112,7 +134,22 @@ public class EnemyAI : MonoBehaviour {
 		dir *= speed * Time.fixedDeltaTime;
 
 		//Move the AI
-		rb.AddForce(dir, fMode);
+		if (knockbackCount <= 0)
+        {
+            rb.AddForce(dir, fMode);
+        }
+        else
+        {
+            if (knockFromRight)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+            }
+            if (!knockFromRight)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
 
 		//check if close enough to the next waypoint, if so, proceed next waypoint
 		float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]); //check the 2nd parameter for this one

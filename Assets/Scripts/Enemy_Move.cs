@@ -15,6 +15,8 @@ public class Enemy_Move : MonoBehaviour {
     private Transform target;
     public LayerMask blockingLayer;         //Layer on which collision will be checked.
     public int enemyDamage;
+    Animator anim;
+
 
     public bool jumper;
     private bool isGrounded;
@@ -27,21 +29,29 @@ public class Enemy_Move : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-       target = Player.transform;
-       //Get a component reference to this object's BoxCollider2D
-       boxCollider = GetComponent <BoxCollider2D> ();
-       //Get a component reference to this object's Rigidbody2D
-       rb2D = GetComponent <Rigidbody2D> ();
-       isGrounded = false;
-       if(jumper) {
-           StartCoroutine(Jump());
-       }
-       knockbackCount = 0;
-    }
+        Player = GameObject.Find("Player");
+        target = Player.transform;
+        anim = GetComponent<Animator>();
+        //Get a component reference to this object's BoxCollider2D
+        boxCollider = GetComponent <BoxCollider2D> ();
+        //Get a component reference to this object's Rigidbody2D
+        rb2D = GetComponent <Rigidbody2D> ();
+        isGrounded = false;
+        if(jumper) {
+            StartCoroutine(Jump());
+        }
+        knockbackCount = 0;
+        }
 
 
     // Update is called once per frame
     void Update () {
+        Vector2 localScale = gameObject.transform.localScale;
+		if((target.position.x < transform.position.x && localScale.x < 0) || (target.position.x > transform.position.x && localScale.x > 0)) {
+			//Debug.Log(target.position.x + ", " + transform.position.x);
+            localScale.x *= -1;
+    		transform.localScale = localScale;
+		}
         if(knockbackCount <= 0) {
             MoveEnemy<MonoBehaviour>();
         }
@@ -170,7 +180,7 @@ public class Enemy_Move : MonoBehaviour {
             attackPlayer();
         }
         RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
-        if (rayDown != null && rayDown.collider != null && trig.collider.tag != "Player")
+        if (rayDown != null && rayDown.collider != null && trig.collider.tag != "Player" && trig.collider.tag != "enemy")
         {
             isGrounded = true;
             //anim.SetTrigger("Land");
@@ -196,7 +206,7 @@ public class Enemy_Move : MonoBehaviour {
             if (isGrounded) {
                 GetComponent<Rigidbody2D>().AddForce (Vector2.up * jumpPower);
                 isGrounded = false;
-                //anim.SetTrigger("Jump");
+                anim.SetTrigger("jump");
                 //anim.SetBool("IsGrounded", isGrounded);
             }
             yield return new WaitForSeconds(1f);

@@ -9,40 +9,40 @@ public class Player_Health : MonoBehaviour {
 
     public static float health;
     public float maxhealth;
-
-    public Image healthb;
-    RectTransform healthbar;
-    float origSize;
-    float delay;
+    public float delay;
     bool dead;
-
 
 	// Use this for initialization
 	void Start () {
         //hasDied = false;
-
-        health = maxhealth;
-        healthbar = healthb.GetComponent<RectTransform>();
-        origSize = healthbar.sizeDelta.x;
-        delay = 10;
-        dead = false;
-
         if(health <= 0) {
             health = maxhealth;
         }
-
+        delay = 3.5f;
+        dead = false;
     }
 
 
 	// Update is called once per frame
-	void FixedUpdate () {
-        if(dead == true) { delay -= Time.deltaTime; }
-        if ((gameObject.transform.position.y < -20 || health <= 0) && dead != true)
+	void Update () {
+        if (dead == true) { delay -= Time.deltaTime; }
+        if (health <= 0)
         {
             //Debug.Log("Player Has Died");
             //hasDied = true;
-            dead = true;
+            health = 0;
+            //dead = true;
             Die();
+        }
+        if(gameObject.transform.position.y < -20 && dead != true) {
+            //health = 0;
+            delay = 2.75f;
+            FindObjectOfType<Health_Bar>().delay = 0.5f;
+            health = 0;
+            //dead = true;
+            Die();
+            //dead = 2;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         /*
@@ -51,11 +51,12 @@ public class Player_Health : MonoBehaviour {
             StartCoroutine("Die");
         }
         */
-        
+
         //Debug.Log("Orig Size: " + origSize + " percent: " + health / maxhealth);
     }
     public static void reduceHealth(int damage) {
         health = health-damage;
+        FindObjectOfType<Player_Health>().transform.Find("Hurt").GetComponent<AudioSource>().Play();
     }
 
     /*
@@ -71,9 +72,18 @@ public class Player_Health : MonoBehaviour {
 
     void Die ()
     {
-        transform.GetComponent<Player_Move_Prot>().Die();
+        if (FindObjectOfType<BackgroundAudioController>()) { FindObjectOfType<BackgroundAudioController>().currentAudio.Pause(); }
+        if (dead != true) { transform.Find("Death").GetComponent<AudioSource>().Play(); }
+        dead = true;
 
-        if (delay <= 0) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        transform.GetComponent<Player_Move_Prot>().Die();
+        if (delay <= 0) {
+            if(FindObjectOfType<BackgroundAudioController>()) {
+                FindObjectOfType<BackgroundAudioController>().currentAudio.Play();
+            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         // yield return null;
         /*
         Debug.Log("Player has fallen");
